@@ -1,5 +1,6 @@
 var Lab = require('lab');
 var Code = require('code');
+var Handlebars = require('handlebars');
 var Config = require('../../../config');
 var Hapi = require('hapi');
 var HomePlugin = require('../../../server/web/index');
@@ -15,7 +16,7 @@ lab.beforeEach(function (done) {
   server = new Hapi.Server();
   server.connection({ port: Config.get('/port/web') });
   server.views({
-    engines: { jade: require('jade') },
+    engines: { html: Handlebars.create() },
     path: './server/web'
   });
   server.register(plugins, function (err) {
