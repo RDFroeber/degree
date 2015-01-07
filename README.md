@@ -2,9 +2,9 @@
 
 A degree tracking application
 
-[![Dependency Status](https://david-dm.org/RDFroeber/hapi-degree.svg)](https://david-dm.org/RDFroeber/hapi-degree)
-[![devDependency Status](https://david-dm.org/RDFroeber/hapi-degree/dev-status.svg?theme=shields.io)](https://david-dm.org/RDFroeber/hapi-degree#info=devDependencies)
-[![Build Status](https://travis-ci.org/RDFroeber/hapi-degree.svg?branch=master)](https://travis-ci.org/RDFroeber/hapi-degree)
+[![Dependency Status](https://david-dm.org/RDFroeber/degree.svg)](https://david-dm.org/RDFroeber/degree)
+[![devDependency Status](https://david-dm.org/RDFroeber/degree/dev-status.svg?theme=shields.io)](https://david-dm.org/RDFroeber/degree#info=devDependencies)
+[![Build Status](https://travis-ci.org/RDFroeber/degree.svg?branch=master)](https://travis-ci.org/RDFroeber/degree)
 
 ## Installation
 
