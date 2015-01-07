@@ -1,0 +1,40 @@
+{
+  "name": "hapi-degree",
+  "version": "0.1.0",
+  "description": "A degree tracking application",
+  "main": "index.js",
+  "scripts": {
+    "start": "./node_modules/nodemon/bin/nodemon.js server",
+    "test": "./node_modules/lab/bin/lab -c -L",
+    "test-cover": "./node_modules/lab/bin/lab -c -r html -o ./test/artifacts/coverage.html && open ./test/artifacts/coverage.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/RDFroeber/degree.git"
+  },
+  "keywords": [
+    "hapi",
+    "tracker",
+    "courses",
+    "degree"
+  ],
+  "author": "Raleigh D. Froeber <RDFroeber@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/RDFroeber/degree/issues"
+  },
+  "homepage": "https://github.com/RDFroeber/degree",
+  "dependencies": {
+    "confidence": "^1.0.0",
+    "glue": "^2.0.0",
+    "handlebars": "^2.0.0",
+    "hapi": "^8.0.0",
+    "hoek": "^2.4.1",
+    "visionary": "^2.0.0"
+  },
+  "devDependencies": {
+    "code": "^1.2.1",
+    "lab": "^5.1.0",
+    "nodemon": "^1.2.1"
+  }
+}
