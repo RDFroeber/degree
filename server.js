@@ -10,6 +10,9 @@ server.connection({ port: 8080 });
 
 server.register([
   {register: require('lout')},
+  {register: hapiMongooseDbConnector,
+    options:
+      mongodbUrl: 'mongodb://hapi:admin@dogen.mongohq.com:10021/hapi-degree'},
   {register: Bell},
   {register: AuthCookie},
   {register: Good,
