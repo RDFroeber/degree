@@ -4,6 +4,7 @@ var Hapi = require('hapi'),
     Good = require('good'),
     Path = require('path'),
     Bell = require('bell'),
+    HapiMongoose = require('hapi-mongoose-db-connector'),
     AuthCookie = require('hapi-auth-cookie');
 
 var auth = require('./auth');
@@ -30,7 +31,7 @@ server.connection({ port: 8080 });
 
 server.register([
   {register: require('lout')},
-  {register: hapiMongooseDbConnector,
+  {register: HapiMongoose,
     options: {
       mongodbUrl: 'mongodb://hapi:admin@dogen.mongohq.com:10021/hapi-degree'
     }

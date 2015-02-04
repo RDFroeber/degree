@@ -130,6 +130,7 @@ npm test-cover
 - [handlebars](https://github.com/wycats/handlebars.js): Build semantic templates effectively with no frustration
 - [hapi](https://github.com/hapijs/hapi): An HTTP Server framework 
 - [hapi-auth-cookie](https://github.com/hapijs/hapi-auth-cookie): Cookie authentication plugin
+- [hapi-mongoose-db-connector](https://github.com/codedoctor/hapi-mongoose-db-connector): Hapi plugin that connects to mongodb
 - [joi](https://github.com/hapijs/joi): An object schema validation
 - [lout](https://github.com/hapijs/lout): API documentation generator plugin for hapi
 - [nodemon](https://github.com/remy/nodemon): A simple monitor script for use during development of a node.js app
