@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="author" content="Raleigh D Froeber">
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
+
+  <title>Hapi Degree</title>
+  
+  <!-- Icons -->
+  <!-- <link rel="apple-touch-icon" sizes="144x144" href="img/apple-touch-icon.png"> -->
+  <!-- <link rel="shortcut icon" sizes="16x16" type="image/png" href="img/favicon.ico"> -->
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" type="text/css" href="/css/style.css" />
+
+  <!-- IE Fix for HTML5 Tags -->
+  <!--[if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+</head>
+<body>
+
+<header class="nav">
+  <div class="logo">
+    <h1>Hapi Degree</h1>
+  </div>
+
+  <!-- Main Navigation -->
+  <nav role="navigation" class="main">
+    <ul>
+      <li><a href="/store/new">New</a></li>
+      <li><a href="/store">Shop</a></li>
+      <li><a href="/store/sale">Sale</a></li>
+      <li><a href="/about">About</a></li>
+    </ul>
+  </nav> 
+
+  <!-- Secondary Navigation -->
+  <nav class="account">
+    <ul>
+      {#user}
+        <li><a href="/account">My Account</a></li>
+        <li><a href="/logout">Logout</a></li>
+      {:else}
+        <li><a href="/login">Login</a></li>
+      {/user}
+    </ul>
+  </nav> 
+</header> 
+
+<!-- Main Content Area -->
+<div role="main" class="wrapper">
+  {+body /}
+</div>
+
+<!-- Footer -->
+<footer>
+  <p>&copy; 2015 Hapi Degree. All Rights Reserved.</p>
+  <nav class="footer">
+    <ul>
+      <li><a href="#terms">TERMS OF USE</a></li>
+      <li><a href="#privacy">PRIVACY &amp; SECURITY</a></li>
+      <li><a href="#returns">RETURN POLICY</a></li>
+      <li><a href="#sitemap">SITE MAP</a></li>
+    </ul>
+  </nav>
+</footer>
+
+<!-- Scripts -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+</body>
+</html>

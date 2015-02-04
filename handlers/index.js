@@ -1,9 +1,16 @@
-// Route Handlers and Configs
+'use strict';
+
+/**
+ * Route Handlers
+ **/
+
 var Joi = require('joi');
 
 module.exports = {
-  helloWorld: function(request, reply) {
-    reply('Hello, world! ' + request.auth.credentials);
+  helloWorld:{
+    handler: function(request, reply) {
+      reply('Hello, world! ' + request.auth.credentials);
+    }
   },
 
   helloConfig: {
