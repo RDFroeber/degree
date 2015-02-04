@@ -14,13 +14,12 @@ A degree tracking application
 git clone https://github.com/RDFroeber/degree.git
 cd degree/
 npm install
+touch auth.js
 ```
 
 Source code can be found [here](https://github.com/RDFroeber/degree).
 
 ## Usage
-
-While many command options are listed here, very few are actually implemented to date. I will update this document as more become available.
 
 ```bash
 npm start
@@ -30,42 +29,53 @@ npm start
 
 * ~~Project Setup~~
 * Add Basic Authentication
-  * Add Student Model
+  * ~~Add Student Model~~
   * Student Signup
   * Student Login
 * Complete Student CRUD Actions
   * View Profile
   * Edit Profile
   * Delete Profile
-* Add Dummy Degrees
-  * Add Degree Model
-  * Add Course Model
+* Add Example Degrees
+  * ~~Add Degree Model~~
+  * ~~Add Course Model~~
+  * ~~Add Requirement Model~~
+  * CRUD Course Actions
+  * CRUD Degree Actions
   * Course Requirements
 * Student Degree Selection
   * Associate Degree
+  * Select Track
 * Students Select Courses
   * Default Current Semester
   * Default Core Courses
   * Select Required/Elective Courses
+
+Backlog:
+
+* Add OAuth Authentication
+* Instructor Login
+* Admin Management Panel by School
 
 ### Resources
 
 Schema Outlines
 
 * **Student**
-  * Info
-    * Email
-    * Password
-    * Contact
-      * Address
-      * Phone
-    * Projected Graduation Year
+  * First Name
+  * Last Name
+  * Email
+  * Password
+  * Contact
+    * Address
+    * Phone
+  * Projected Graduation Year
   * Chosen Degree *Reference*
   * Chosen Degree Track
-  * Semesters
+  * Semesters:
     * Date
     * Complete?
-    * Courses
+    * Courses:
       * *Reference to Course*
       * Instructor
       * Status active|completed|dropped
@@ -77,7 +87,7 @@ Schema Outlines
   * Department
   * Units
   * Grade Scale
-  * Length
+  * Number of Semesters
   * Description
   * Approval Needed?
 
@@ -85,132 +95,22 @@ Schema Outlines
   * Total Credits
   * Track Options
   * Core - Locked/Required Courses
-    * First:
+    * Requirements:
       * *Course Reference*
   * Track - Specific Course Options
     * Name
-    * First:
+    * Requirements:
       * *Course Reference*
-      * Substitute: 
+      * Substitutes: 
         * Exist?
         * Options
   * Electives - Open/Restricted Courses
-    * First:
+    * Requirements:
       * *Course Reference*
       * Restriction
         * Type department|course|level
         * Options (based on type)
-        * Approval Needed?
-
-### Data Examples
-
-Billy (Student)
-  email:
-  password:
-  contact:
-    address:
-    gradYr:
-  degree: *ref*
-  track: 
-  semesters: [
-      date:
-      complete:
-      courses: [
-        course: *ref*
-        instructor:
-        status: active|completed|dropped
-        grade:
-      ],
-    semester
-      ...
-      ...
-      ...,
-  ]
-
-Comp Sci (Degree)
-  credits: 
-  tracks: [
-    name: Vision & Graphics,
-    ...
-  ]
-  core: 
-    one: 
-      course: Intro to Computing 
-      substitutes: none
-    two: 
-      course: Intro to CS and Programming in Java
-      substitutes: Honors Intro to CS
-    three:
-      course: Data Structures in Java
-      substitutes: Honors Data Structures and Algorithms
-    four: 
-      course: Advanced Programming
-      substitutes: none
-    five:
-      course: Discrete Mathematics
-      substitutes: none
-    six:
-      course: Computational Linear Algebra
-      substitutes: none
-    seven:
-      course: Computer Science Theory
-      substitutes: none
-    eight:
-      course: Fundamentals of Computer System
-      substitutes: none
-    nine: 
-      course: Probability and Statistics
-      substitutes: none
-    ten:
-      course: Calculus I 
-      substitutes: none
-    eleven:
-      course: Calculus II
-      substitutes: none
-    twelve:
-      course: Calculus III
-      substitutes: none
-  track: 
-    name: Vision & Graphics
-    one: 
-      course: Computer Vision 
-      substitutes: Computer Graphics|Computer Animation
-    two:
-      course: Computer Vision 
-      substitutes: Computer Graphics|Computer Animation
-    three:
-      course: 
-      substitutes:
-          Advanced Computer Graphics  
-          Pixel Processing  
-          Computer Animation  
-          User Interface Design 
-          3D User Interfaces and Augmented Reality  
-          Artificial Intelligence 
-          Computational Aspects of Robotics 
-          Visual Interfaces to Computers  
-          Machine Learning  
-          Video Game Technology & Design  
-          Undergraduate Thesis  
-          Undergraduate Projects in CS
-    ...
-  electives: 
-    one: 
-      ref:
-      restriction: 
-        type: course
-        options: [
-          Advanced Computer Graphics  
-          Pixel Processing  
-          Computer Animation  
-        ]
-        approval: true
-    two: 
-      ref:
-      restriction: 
-        type: level
-        options: 600
-        approval: true
+      * Approval Needed?
 
 ## Tests
 
