@@ -28,10 +28,11 @@ npm start
 ## Development Task List
 
 * ~~Project Setup~~
-* Add Basic Authentication
+* Add Authentication
   * ~~Add Student Model~~
-  * Student Signup
-  * Student Login
+  * ~~Google OAuth~~
+  * ~~Student Signup~~
+  * ~~Student Login~~
 * Complete Student CRUD Actions
   * View Profile
   * Edit Profile
@@ -51,11 +52,6 @@ npm start
   * Default Core Courses
   * Select Required/Elective Courses
 
-Backlog:
-
-* Add OAuth Authentication
-* Instructor Login
-* Admin Management Panel by School
 
 ### Resources
 
