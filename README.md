@@ -27,7 +27,7 @@ npm start
 
 ## API Documentation
 
-API documentation is automatically generated using the [lout](https://www.npmjs.com/package/lout) module and can be found at ['/docs'](http://localhost:8080/docs) when your server is running.
+API documentation is automatically generated using the [hapi-swagger](https://www.npmjs.com/package/hapi-swagger) module and can be found at ['/documentation'](http://localhost:8080/documentation) when your server is running.
 
 ## Development Task List
 
@@ -136,7 +136,6 @@ npm test
 - [hapi-auth-cookie](https://github.com/hapijs/hapi-auth-cookie): Cookie authentication plugin
 - [hapi-mongoose-db-connector](https://github.com/codedoctor/hapi-mongoose-db-connector): Hapi plugin that connects to mongodb
 - [joi](https://github.com/hapijs/joi): An object schema validation
-- [lout](https://github.com/hapijs/lout): API documentation generator plugin for hapi
 - [moment](https://github.com/moment/moment): Parse, validate, manipulate, and display dates
 - [mongoose](https://github.com/LearnBoost/mongoose): Mongoose MongoDB ODM
 - [nodemon](https://github.com/remy/nodemon): A simple monitor script for use during development of a node.js app
@@ -146,6 +145,7 @@ npm test
 - [chai](https://github.com/chaijs/chai): BDD/TDD assertion library for node.js and the browser
 - [grunt](https://github.com/gruntjs/grunt): The JavaScript Task Runner
 - [grunt-contrib-jshint](https://github.com/gruntjs/grunt-contrib-jshint): Validate files with JSHint
+- [hapi-swagger](https://github.com/glennjones/hapi-swagger): A swagger documentation UI generator plugin for hapi
 - [load-grunt-tasks](https://github.com/sindresorhus/load-grunt-tasks): Load multiple grunt tasks using globbing patterns
 - [mocha](https://github.com/mochajs/mocha): A simple, flexible, fun test framework
 - [time-grunt](https://github.com/sindresorhus/time-grunt): Display the elapsed execution time of grunt tasks
