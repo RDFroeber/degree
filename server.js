@@ -5,7 +5,8 @@ var Hapi = require('hapi'),
     Path = require('path'),
     Bell = require('bell'),
     HapiMongoose = require('hapi-mongoose-db-connector'),
-    AuthCookie = require('hapi-auth-cookie');
+    AuthCookie = require('hapi-auth-cookie'),
+    pgk = require('./package.json');
 
 var auth = require('./auth');
 
@@ -30,7 +31,13 @@ server.connection({port: 8080});
  **/
 
 server.register([
-  {register: require('lout')},
+  // {register: require('lout')},
+  {register: require('hapi-swagger'),
+    options: {
+      // basePath: 'http://localhost:8000',
+      apiVersion: pgk.version
+    }
+  },
   {register: HapiMongoose,
     options: {
       mongodbUrl: 'mongodb://hapi:admin@dogen.mongohq.com:10021/hapi-degree'
@@ -117,6 +124,8 @@ server.route({path: '/', method:'GET', config: routes.home});
 // server.route({path: '/account', method:'GET', config: routes.viewProfile});
 server.route({path: '/auth/google', method: 'GET', config: routes.googleAuth});
 server.route({path: '/logout', method: 'GET', config: routes.logout});
+// API Routes
+server.route(require('./routes/api'));
 
 server.route({
   method: 'GET',
