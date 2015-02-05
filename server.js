@@ -114,7 +114,14 @@ server.route({
 });
 
 server.route({path: '/', method:'GET', config: routes.home});
-// server.route({path: '/account', method:'GET', config: routes.profile});
+// server.route({path: '/account', method:'GET', config: routes.viewProfile});
 server.route({path: '/auth/google', method: 'GET', config: routes.googleAuth});
 server.route({path: '/logout', method: 'GET', config: routes.logout});
-// server.route({method: ['GET', 'POST'], path: '/bell/door', config: routes.google});
+
+server.route({
+  method: 'GET',
+  path: '/form',
+  handler: function(request, reply){
+    reply.view('form')
+  }
+});

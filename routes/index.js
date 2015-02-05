@@ -18,7 +18,7 @@ module.exports = {
       'hapi-auth-cookie': { redirectTo: false } 
     },
     handler: function(request, reply) {
-      reply.view('index', {
+      return reply.view('index', {
         user: JSON.stringify(request.auth.credentials),
         isLoggedIn: request.auth.isAuthenticated
       });
@@ -72,6 +72,22 @@ module.exports = {
     handler: function(request, reply) {
       request.auth.session.clear();
       return reply.redirect('/');
+    }
+  },
+
+  viewProfile: {
+    auth: 'session',
+    handler: function(request, reply) {
+      Student.findOne({'email': request.auth.credentials.email}).exec(function(err, student){
+        if(err){
+          console.log(err);
+        } else {
+          return reply.view('profile/view', {
+            student: student,
+            isLoggedIn: request.auth.isAuthenticated
+          });
+        }
+      });
     }
   }
 };
