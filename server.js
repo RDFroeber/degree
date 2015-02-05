@@ -10,7 +10,7 @@ var Hapi = require('hapi'),
 var auth = require('./auth');
 
 /**
- * Server
+ * Server Config
  **/
 
 var server = new Hapi.Server({
@@ -23,7 +23,7 @@ var server = new Hapi.Server({
   }
 });
 
-server.connection({ port: 8080 });
+server.connection({port: 8080});
 
 /**
  * Plugins
@@ -54,14 +54,26 @@ server.register([
   server.auth.strategy('google', 'bell', {
     provider: 'google',
     cookie: 'sid-ex-degree',
-    password: 'gettingKnowledge',
+    password: auth.Google.password,
     isSecure: false,
     clientId: auth.Google.clientId,
     clientSecret: auth.Google.clientSecret,
     providerParams: {
-      redirect_uri: server.info.uri + '/bell/door'
+      redirect_uri: server.info.uri + '/auth/google'
     }
   });
+
+  server.auth.strategy('session', 'cookie', {
+    password: 'studyhardplayhard',
+    cookie: 'sid-hapi-degree',
+    redirectTo: '/',
+    isSecure: false
+  });
+
+
+  /**
+   * Start Server
+   **/
 
   server.start(function () {
     server.log('info', 'Server running at: ' + server.info.uri);
@@ -76,17 +88,18 @@ server.views({
   engines: {
       html: require('handlebars')
   },
-  relativeTo: __dirname + '/public',
-  path: './public/templates',
-  layoutPath: './public/templates/layout',
-  // helpersPath: './public/templates/helpers'
+  path: Path.join(__dirname, '/public/templates'),
+  layoutPath: Path.join(__dirname, '/public/templates/layout'),
+  layout: true,
+  partialsPath: Path.join(__dirname, '/public/templates/partials'),
+  helpersPath: Path.join(__dirname, '/public/templates/helpers')
 });
 
 /**
  * Routes
  **/
 
-var handler = require('./handlers');
+var routes = require('./routes');
 
 // Serve Static Directory
 server.route({
@@ -94,12 +107,14 @@ server.route({
   path: '/{param*}',
   handler: {
     directory: {
-      path: 'public',
+      path: Path.join(__dirname, 'public'),
       listing: true
     }
   }
 });
 
-server.route({path: '/', method:'GET', config: handler.helloWorld});
-server.route({path: '/hello/{name*2}', method: 'GET', config: handler.helloConfig});
-server.route({method: ['GET', 'POST'], path: '/bell/door', config: handler.google});
+server.route({path: '/', method:'GET', config: routes.home});
+// server.route({path: '/account', method:'GET', config: routes.profile});
+server.route({path: '/auth/google', method: 'GET', config: routes.googleAuth});
+server.route({path: '/logout', method: 'GET', config: routes.logout});
+// server.route({method: ['GET', 'POST'], path: '/bell/door', config: routes.google});
