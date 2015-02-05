@@ -25,6 +25,10 @@ Source code can be found [here](https://github.com/RDFroeber/degree).
 npm start
 ```
 
+## API Documentation
+
+API documentation is automatically generated using the [lout](https://www.npmjs.com/package/lout) module and can be found at ['/docs'](http://localhost:8080/docs) when your server is running.
+
 ## Development Task List
 
 * ~~Project Setup~~
@@ -139,9 +143,11 @@ npm test
 
 ## Dev Dependencies
 
+- [chai](https://github.com/chaijs/chai): BDD/TDD assertion library for node.js and the browser
 - [grunt](https://github.com/gruntjs/grunt): The JavaScript Task Runner
 - [grunt-contrib-jshint](https://github.com/gruntjs/grunt-contrib-jshint): Validate files with JSHint
 - [load-grunt-tasks](https://github.com/sindresorhus/load-grunt-tasks): Load multiple grunt tasks using globbing patterns
+- [mocha](https://github.com/mochajs/mocha): A simple, flexible, fun test framework
 - [time-grunt](https://github.com/sindresorhus/time-grunt): Display the elapsed execution time of grunt tasks
 
 ## License
