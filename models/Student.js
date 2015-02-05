@@ -18,29 +18,24 @@ var studentSchema = new Schema({
     type      : String, 
     trim      : true
   },
-  local       : {
-    email     : {
-      type    : String, 
-      unique  : true,
-      lowercase: true,
-      trim    : true
-    },
-    password: {
-      type    : String
-    }
+  email       : {
+    type      : String, 
+    unique    : true,
+    lowercase : true,
+    required  : true
   },
-  // google      : {
-  //   id        : String,
-  //   token     : String,
-  //   email     : String,
-  //   name      : String
-  // },
-  // facebook    : {
-  //   id        : String,
-  //   token     : String,
-  //   email     : String,
-  //   name      : String
-  // },
+  gender      : {
+    type      : String, 
+    enum      : ['female', 'male', 'undisclosed']
+  },
+  google      : {
+    id        : String,
+    token     : String
+  },
+  picture     : {
+    type      : String, 
+    default   : 'defaultImgpath'
+  },
   contact     : {
     address   : {
       primary : Boolean,
@@ -56,11 +51,7 @@ var studentSchema = new Schema({
       zipcode : Number,
     },
     phone     : {
-      number  : String,
-      match   : [
-        /^[(]{0,1}[0-9]{3}[)]{0,1}[-\s\.]{0,1}[0-9]{3}[-\s\.]{0,1}[0-9]{4}$/,
-        'Phone number is not valid.'
-      ]
+      number  : String
     }
   },
   gradYr      : {
@@ -112,28 +103,7 @@ studentSchema.virtual('fullName').get(function(){
   if(this.firstName && this.lastName){
     fullName = this.firstName + ' ' + this.lastName;
   } 
-  // else if(this.google.name){
-  //   fullName = this.google.name;
-  // } else if(this.facebook.name){
-  //   fullName = this.facebook.name;
-  // }
-  
   return fullName;
-});
-
-studentSchema.virtual('email').get(function(){
-  var email;
-
-  if(this.local.email){
-    email = this.local.email;
-  } 
-  // else if(this.google.email){
-  //   email = this.google.email;
-  // } else if(this.facebook.email){
-  //   email = this.facebook.email;
-  // }
-  
-  return email;
 });
 
 studentSchema.virtual('created').get(function(){

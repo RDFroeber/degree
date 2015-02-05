@@ -9,7 +9,7 @@ var mongoose = require('mongoose'),
     moment = require('moment');
 
 var requirementSchema = new Schema({
-  type        : {
+  reqType     : {
     type      : String, 
     required  : true,
     enum      : ['core', 'track', 'elective']
@@ -26,16 +26,16 @@ var requirementSchema = new Schema({
     }]
   },
   restriction : {
-    type      : {
+    resType   : {
       type    : String, 
       enum    : ['department', 'course', 'level']
-    }
+    },
     options   : Array
   },
   approval    : {
     type      : Boolean,
     default   : false
-  }
+  },
   createdAt   : { 
     type      : Date, 
     default   : Date.now()
