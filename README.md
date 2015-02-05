@@ -33,35 +33,35 @@ API documentation is automatically generated using the [lout](https://www.npmjs.
 
 * ~~Project Setup~~
 * ~~Add Authentication~~
-  * ~~Add Student Model~~
   * ~~Google OAuth~~
   * ~~Student Signup~~
   * ~~Student Login~~
-* Complete Student CRUD Actions
-  * View Profile
-  * Edit Profile
-  * Delete Profile
-* Add Example Degrees
+* Data Layer
+  * ~~Add Student Model~~
   * ~~Add Degree Model~~
   * ~~Add Course Model~~
   * ~~Add Requirement Model~~
-  * CRUD Course Actions
-  * CRUD Degree Actions
-  * Course Requirements
-* Student Degree Selection
-  * Associate Degree
-  * Select Track
-* Students Select Courses
-  * Default Current Semester
-  * Default Core Courses
-  * Select Required/Elective Courses
+* API Layer
+  * Student CRUD Actions
+  * Degree CRUD Actions
+  * Course CRUD Actions
+  * Requirement CRUD Actions
+* Seed the Database
+  * Add Students
+  * Add Courses
+  * Add Degrees
+  * Add Requirements
+  * Associate Models
+* View Layer
+  * Add Angular App
+  * TBC...
+* Styling!
 * Tests
   * Models
     * ~~Student~~
     * Degree 
     * Course
     * Requirement 
-
 
 ### Resources
 
