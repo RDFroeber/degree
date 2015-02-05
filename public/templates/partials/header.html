@@ -1,0 +1,24 @@
+<div class="logo">
+  <h1>Hapi Degree</h1>
+</div>
+
+<!-- Main Navigation -->
+<nav role="navigation" class="main">
+  <ul>
+    <li><a href="#">About</a></li>
+    <li><a href="#">Degrees</a></li>
+    <li><a href="#">Contact</a></li>
+  </ul>
+</nav> 
+
+<!-- Secondary Navigation -->
+<nav class="account">
+  <ul>
+    {{#if isLoggedIn}}
+      <li><a href="/account">My Account</a></li>
+      <li><a href="/logout">Logout</a></li>
+    {{else}}
+      <li><a href="/auth/google">Login</a></li>
+    {{/if}}
+  </ul>
+</nav> 

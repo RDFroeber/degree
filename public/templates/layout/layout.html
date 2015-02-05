@@ -23,36 +23,12 @@
 <body>
 
 <header class="nav">
-  <div class="logo">
-    <h1>Hapi Degree</h1>
-  </div>
-
-  <!-- Main Navigation -->
-  <nav role="navigation" class="main">
-    <ul>
-      <li><a href="/store/new">New</a></li>
-      <li><a href="/store">Shop</a></li>
-      <li><a href="/store/sale">Sale</a></li>
-      <li><a href="/about">About</a></li>
-    </ul>
-  </nav> 
-
-  <!-- Secondary Navigation -->
-  <nav class="account">
-    <ul>
-      {#user}
-        <li><a href="/account">My Account</a></li>
-        <li><a href="/logout">Logout</a></li>
-      {:else}
-        <li><a href="/login">Login</a></li>
-      {/user}
-    </ul>
-  </nav> 
+  {{>header}}
 </header> 
 
 <!-- Main Content Area -->
 <div role="main" class="wrapper">
-  {+body /}
+  {{{content}}}
 </div>
 
 <!-- Footer -->
