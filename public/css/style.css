@@ -1,4 +1,99 @@
-.elegant-aero {
+@charset "UTF-8";
+
+/*** Table Of Contents ***
+* 1. Resets
+* 2. General Elements
+* 3. Header/Main Navigation
+* 4. Main Content Section
+* 5. Footer Section
+***/
+
+/*** Color Codes ***
+* Light Grey   rgb(235,235,235)  #EBEBEB
+* Grey         rgb(169,169,169)  #A9A9A9
+* Dark Grey    rgb(102,102,102)  #666
+* Lighter Blue rgb(210,233,255)  #D2E9FF
+* Light Blue   rgb(192,225,255)  #C0E1FF
+* Medium Blue  rgb(102,193,228)  #66C1E4
+* Darker Blue  rgb(62,177,221)   #3EB1DD
+***/
+
+/*** 
+* 1. Resets
+***/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* Border Box Sizing */
+*, *:before, *:after {
+  -moz-box-sizing: border-box; 
+  -webkit-box-sizing: border-box; 
+  box-sizing: border-box;
+}
+
+/*** 
+* 2. General Elements 
+***/
+
+h2 {
+  font: 24px "Trebuchet MS", Arial, Helvetica, sans-serif;
+  padding: 10px 10px 10px 20px;
+  display: block;
+  background: #C0E1FF;
+  border-bottom: 1px solid #B8DDFF;
+  margin: -20px -20px 15px;
+}
+
+/* Forms */
+form.elegant-aero {
   margin-left:auto;
   margin-right:auto;
   max-width: 500px;
@@ -7,29 +102,20 @@
   font: 12px Arial, Helvetica, sans-serif;
   color: #666;
 }
-.elegant-aero h2 {
-  font: 24px "Trebuchet MS", Arial, Helvetica, sans-serif;
-  padding: 10px 10px 10px 20px;
-  display: block;
-  background: #C0E1FF;
-  border-bottom: 1px solid #B8DDFF;
-  margin: -20px -20px 15px;
-}
-.elegant-aero h1>span {
+form h2>span {
   display: block;
   font-size: 11px;
 }
 
-.elegant-aero label>span {
+form label>span {
   float: left;
   margin-top: 10px;
-  color: #5E5E5E;
 }
-.elegant-aero label {
+form label {
   display: block;
   margin: 0px 0px 5px;
 }
-.elegant-aero label>span {
+form label>span {
   float: left;
   width: 20%;
   text-align: right;
@@ -37,10 +123,10 @@
   margin-top: 10px;
   font-weight: bold;
 }
-.elegant-aero input[type="text"], 
-.elegant-aero input[type="email"], 
-.elegant-aero textarea, 
-.elegant-aero select {
+form input[type="text"], 
+form input[type="email"], 
+form textarea, 
+form select {
   color: #888;
   width: 70%;
   padding: 0px 0px 0px 5px;
@@ -54,14 +140,14 @@
   line-height:15px;
   margin: 2px 6px 16px 0px;
 }
-.elegant-aero textarea{
+form textarea{
   height:100px;
   padding: 5px 0px 0px 5px;
   width: 70%;
 }
-.elegant-aero select {
-  background: #fbfbfb url('down-arrow.png') no-repeat right;
-  background: #fbfbfb url('down-arrow.png') no-repeat right;
+form select {
+  background: #fbfbfb url('../img/down-arrow.png') no-repeat right;
+  background: #fbfbfb url('../img/down-arrow.png') no-repeat right;
   appearance:none;
   -webkit-appearance:none; 
   -moz-appearance: none;
@@ -69,7 +155,7 @@
   text-overflow: '';
   width: 70%;
 }
-.elegant-aero .button{
+.button{
   padding: 10px 30px 10px 30px;
   background: #66C1E4;
   border: none;
@@ -80,6 +166,18 @@
   text-shadow: 1px 1px 1px #5079A3;
   
 }
-.elegant-aero .button:hover{
+.button:hover{
     background: #3EB1DD;
 }
+
+/***
+* 3. Header/Main Navigation
+***/
+
+/*** Table Of Contents
+* 4. Main Content Section
+***/
+
+/***
+* 5. Footer Section
+***/
