@@ -34,25 +34,22 @@ var studentSchema = new Schema({
   },
   picture     : {
     type      : String, 
-    default   : 'defaultImgpath'
+    default   : 'defaultImgpath' // TODO: Update!
   },
-  contact     : {
-    address   : {
-      primary : Boolean,
-      street  : {
-        type  : String, 
-        trim  : true
-      },
-      city    : {
-        type  : String, 
-        trim  : true
-      },
-      state   : String,
-      zipcode : Number,
+  address   : {
+    street  : {
+      type  : String, 
+      trim  : true
     },
-    phone     : {
-      number  : String
-    }
+    city    : {
+      type  : String, 
+      trim  : true
+    },
+    state   : String,
+    zipcode : Number,
+  },
+  phone     : {
+    type    : String
   },
   gradYr      : {
     type      : Number

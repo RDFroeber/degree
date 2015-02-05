@@ -1,6 +1,6 @@
-# Degree
+# Hapi Degree
 
-A degree tracking application
+A degree tracking application built with Hapi.js
 
 [![Dependency Status](https://david-dm.org/RDFroeber/degree.svg)](https://david-dm.org/RDFroeber/degree)
 [![devDependency Status](https://david-dm.org/RDFroeber/degree/dev-status.svg?theme=shields.io)](https://david-dm.org/RDFroeber/degree#info=devDependencies)
@@ -115,7 +115,6 @@ Not implemented.
 ```sh
 npm install
 npm test
-npm test-cover
 ```
 
 ## Dependencies
