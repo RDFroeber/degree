@@ -51,6 +51,12 @@ npm start
   * Default Current Semester
   * Default Core Courses
   * Select Required/Elective Courses
+* Tests
+  * Models
+    * ~~Student~~
+    * Degree 
+    * Course
+    * Requirement 
 
 
 ### Resources
@@ -62,9 +68,8 @@ Schema Outlines
   * Last Name
   * Email
   * Password
-  * Contact
-    * Address
-    * Phone
+  * Address
+  * Phone
   * Projected Graduation Year
   * Chosen Degree *Reference*
   * Chosen Degree Track
@@ -113,7 +118,6 @@ Schema Outlines
 Not implemented.
 
 ```sh
-npm install
 npm test
 ```
 
