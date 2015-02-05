@@ -28,7 +28,7 @@ npm start
 ## Development Task List
 
 * ~~Project Setup~~
-* Add Authentication
+* ~~Add Authentication~~
   * ~~Add Student Model~~
   * ~~Google OAuth~~
   * ~~Student Signup~~
@@ -120,6 +120,7 @@ npm test-cover
 
 ## Dependencies
 
+- [bcrypt](https://github.com/ncb000gt/node.bcrypt.js): A bcrypt library for NodeJS
 - [bell](https://github.com/hapijs/bell): Third-party login plugin for hapi
 - [good](https://github.com/hapijs/good): Server and process monitoring plugin
 - [good-console](https://github.com/hapijs/good-console): Console broadcasting for Good process monitor
@@ -129,12 +130,16 @@ npm test-cover
 - [hapi-mongoose-db-connector](https://github.com/codedoctor/hapi-mongoose-db-connector): Hapi plugin that connects to mongodb
 - [joi](https://github.com/hapijs/joi): An object schema validation
 - [lout](https://github.com/hapijs/lout): API documentation generator plugin for hapi
+- [moment](https://github.com/moment/moment): Parse, validate, manipulate, and display dates
+- [mongoose](https://github.com/LearnBoost/mongoose): Mongoose MongoDB ODM
 - [nodemon](https://github.com/remy/nodemon): A simple monitor script for use during development of a node.js app
 
 ## Dev Dependencies
 
-- [code](https://github.com/hapijs/code): An assertion library
-- [lab](https://github.com/hapijs/lab): A test utility
+- [grunt](https://github.com/gruntjs/grunt): The JavaScript Task Runner
+- [grunt-contrib-jshint](https://github.com/gruntjs/grunt-contrib-jshint): Validate files with JSHint
+- [load-grunt-tasks](https://github.com/sindresorhus/load-grunt-tasks): Load multiple grunt tasks using globbing patterns
+- [time-grunt](https://github.com/sindresorhus/time-grunt): Display the elapsed execution time of grunt tasks
 
 ## License
 
