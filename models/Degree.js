@@ -22,6 +22,13 @@ var degreeSchema = new Schema({
     type      : Number,
     required  : true
   },
+  prerequisites: {
+    totalReq  : Number,
+    requirements: [{
+      type    : Schema.Types.ObjectId, 
+      ref     : 'Requirement' 
+    }]
+  },
   core        : {
     totalReq  : Number,
     requirements: [{

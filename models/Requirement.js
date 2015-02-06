@@ -12,7 +12,7 @@ var requirementSchema = new Schema({
   reqType     : {
     type      : String, 
     required  : true,
-    enum      : ['core', 'track', 'elective']
+    enum      : ['core', 'track', 'elective', 'prerequisite']
   },
   course      : {
     type      : Schema.Types.ObjectId, 

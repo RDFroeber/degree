@@ -202,6 +202,10 @@ var apiRoutes = [
           name: Joi.string().trim().min(2).max(10).required(),
           specialization: Joi.string().trim().min(3).max(100).required(),
           credits: Joi.number().precision(1).required(),
+          prerequisites: Joi.object().keys({
+            totalReq: Joi.number().integer().min(1).max(60),
+            requirements: Joi.array().includes(Joi.string().alphanum())
+          }),
           core: Joi.object().keys({
             totalReq: Joi.number().integer().min(1).max(60),
             requirements: Joi.array().includes(Joi.string().alphanum())
@@ -291,6 +295,10 @@ var apiRoutes = [
           name: Joi.string().trim().min(2).max(10),
           specialization: Joi.string().trim().min(3).max(100),
           credits: Joi.number().precision(1),
+          prerequisites: Joi.object().keys({
+            totalReq: Joi.number().integer().min(1).max(60),
+            requirements: Joi.array().includes(Joi.string().alphanum())
+          }),
           core: Joi.object().keys({
             totalReq: Joi.number().integer().min(1).max(60),
             requirements: Joi.array().includes(Joi.string().alphanum())
