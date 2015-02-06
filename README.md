@@ -42,7 +42,7 @@ API documentation is automatically generated using the [hapi-swagger](https://ww
   * ~~Add Course Model~~
   * ~~Add Requirement Model~~
 * API Layer
-  * Student CRUD Actions
+  * ~~Student CRUD Actions~~
   * Degree CRUD Actions
   * Course CRUD Actions
   * Requirement CRUD Actions
