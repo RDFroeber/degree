@@ -14,7 +14,7 @@ A degree tracking application built with Hapi.js
 git clone https://github.com/RDFroeber/degree.git
 cd degree/
 npm install
-touch auth.js
+touch authCredentials.js
 ```
 
 Source code can be found [here](https://github.com/RDFroeber/degree).
@@ -36,7 +36,7 @@ API documentation is automatically generated using the [hapi-swagger](https://ww
   * ~~Google OAuth~~
   * ~~Student Signup~~
   * ~~Student Login~~
-* Data Layer
+* ~~Data Layer~~
   * ~~Add Student Model~~
   * ~~Add Degree Model~~
   * ~~Add Course Model~~
@@ -54,14 +54,15 @@ API documentation is automatically generated using the [hapi-swagger](https://ww
   * Associate Models
 * View Layer
   * Add Angular App
-  * TBC...
-* Styling!
+  * TBD
+* Add Styling
 * Tests
   * Models
     * ~~Student~~
     * Degree 
     * Course
     * Requirement 
+  * Client
 
 ### Resources
 
