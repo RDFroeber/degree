@@ -35,23 +35,18 @@ module.exports = {
   },
 
   findByNumber: function(request, reply){
-    var number = request.params.number;
+    var number = request.query.number,
+        name = request.query.name,
+        query;
 
-    Course.findOne({'number': number}).exec(function(err, course){
-      if(err){
-        return reply(err).code(400);
-      } else if(!course){
-        return reply('Course Not Found').code(404);
-      } else {
-        return reply(course).code(200);
-      }
-    });
-  },
+    if(number){
+      query = {'number': number};
+    } else if(name){
+      query = {'name': name};
+    }
 
-  findByName: function(request, reply){
-    var name = request.params.name;
 
-    Course.findOne({'name': name}).exec(function(err, course){
+    Course.findOne(query).exec(function(err, course){
       if(err){
         return reply(err).code(400);
       } else if(!course){
