@@ -48,7 +48,7 @@ var courseSchema = new Schema({
     required  : true
   },
   sections    : [{
-    name      : String,
+    number    : String,
     instructor: String,
     day       : {
       type    : String, 

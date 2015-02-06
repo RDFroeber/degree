@@ -199,7 +199,7 @@ var apiRoutes = [
       tags: ['api', 'degrees'],
       validate: {
         payload: {
-          name: Joi.string().trim().min(3).max(100).required(),
+          name: Joi.string().trim().min(2).max(10).required(),
           specialization: Joi.string().trim().min(3).max(100).required(),
           credits: Joi.number().precision(1).required(),
           core: Joi.object().keys({
@@ -288,9 +288,9 @@ var apiRoutes = [
           id: Joi.string().alphanum().required()
         },
         payload: {
-          name: Joi.string().trim().min(3).max(100).required(),
-          specialization: Joi.string().trim().min(3).max(100).required(),
-          credits: Joi.number().precision(1).required(),
+          name: Joi.string().trim().min(2).max(10),
+          specialization: Joi.string().trim().min(3).max(100),
+          credits: Joi.number().precision(1),
           core: Joi.object().keys({
             totalReq: Joi.number().integer().min(1).max(60),
             requirements: Joi.array().includes(Joi.string().alphanum())
@@ -366,7 +366,7 @@ var apiRoutes = [
           courseLength: Joi.number().precision(1).min(0).max(6),
           sections: Joi.array().includes(
             Joi.object().keys({
-              name: Joi.string().trim().min(3).max(100),
+              number: Joi.string().trim().min(3).max(100),
               instructor: Joi.string().trim().min(8).max(100),
               day: Joi.string().valid('M','Tu','W','Th','F','Sa','Su','M/W','Tu/Th','M/W/F','OT'),
               time: Joi.string().regex(/[0-1]{1}[0-9]{1}:[0-9]{2}(am|pm)-[0-1]{1}[0-9]{1}:[0-9]{2}(am|pm)/, 'Time Format'),
@@ -445,22 +445,22 @@ var apiRoutes = [
           id: Joi.string().alphanum().required()
         },
         payload: {
-          name: Joi.string().trim().min(3).max(100).required(),
+          name: Joi.string().trim().min(3).max(100),
           courseType: Joi.string().valid('Lecture', 'Seminar', 'Lab', 'Independent'),
-          number: Joi.string().trim().min(3).max(10).required(),
-          department: Joi.string().trim().min(3).max(100).required(),
-          units: Joi.number().precision(1).required(),
+          number: Joi.string().trim().min(3).max(10),
+          department: Joi.string().trim().min(3).max(100),
+          units: Joi.number().precision(1),
           enrollment: {
             current: Joi.number().integer(),
             max: Joi.number().integer()
           },
           gradeScale: Joi.string().valid('pass/fail', '4.0'),
           approval: Joi.boolean(),
-          description: Joi.string().trim().min(40).max(500).required(),
+          description: Joi.string().trim().min(40).max(500),
           courseLength: Joi.number().precision(1).min(0).max(6),
           sections: Joi.array().includes(
             Joi.object().keys({
-              name: Joi.string().trim().min(3).max(100),
+              number: Joi.string().trim().min(3).max(100),
               instructor: Joi.string().trim().min(8).max(100),
               day: Joi.string().valid('M','Tu','W','Th','F','Sa','Su','M/W','Tu/Th','M/W/F','OT'),
               time: Joi.string().regex(/[0-1]{1}[0-9]{1}:[0-9]{2}(am|pm)-[0-1]{1}[0-9]{1}:[0-9]{2}(am|pm)/, 'Time Format'),
