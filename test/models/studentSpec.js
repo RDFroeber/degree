@@ -147,9 +147,9 @@ describe('Student', function() {
     var semSchema = schema.semesters.schema.paths; // Embedded Document
 
     describe('.date', function() {
-      it('should exist and be a Date', function() {
+      it('should exist and be a String', function() {
         expect(semSchema.date).to.exist;
-        expect(semSchema.date.options.type.name).to.equal('Date');
+        expect(semSchema.date.options.type.name).to.equal('String');
       });
 
       it('should be required', function() {
