@@ -10,15 +10,13 @@ var mongoose = require('mongoose'),
 
 var degreeSchema = new Schema({
   name        : {
-    type      : String, 
-    trim      : true,
+    type      : String,
     required  : true,
     unique    : true
   },
   credits     : {
-    type      : Number, 
-    trim      : true,
-    required  : true,
+    type      : Number,
+    required  : true
   },
   core        : {
     totalReq  : Number,

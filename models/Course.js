@@ -10,9 +10,12 @@ var mongoose = require('mongoose'),
 
 var courseSchema = new Schema({
   name        : {
-    type      : String, 
-    trim      : true,
+    type      : String,
     required  : true
+  },
+  courseType  : {
+    type      : String, 
+    enum      : ['Lecture', 'Seminar', 'Lab', 'Independent']
   },
   number      : {
     type      : String,
@@ -25,7 +28,12 @@ var courseSchema = new Schema({
   },
   units       : {
     type      : Number, 
-    default   : 3
+    default   : 3,
+    required  : true
+  },
+  enrollment  : {
+    current   : Number,
+    max       : Number
   },
   gradeScale  : {
     type      : String, 
@@ -35,17 +43,25 @@ var courseSchema = new Schema({
     type      : Boolean,
     default   : false
   },
-  description  : {
+  description : {
     type      : String,
     required  : true
   },
-  length      : {
+  sections    : [{
+    name      : String,
+    instructor: String,
+    day       : {
+      type    : String, 
+      enum    : ['M','Tu','W','Th','F','Sa','Su','M/W','Tu/Th','M/W/F','OT']
+    },
+    time      : String,
+    location  : String,
+    semester  : String
+  }],
+  courseLength: {
     type      : Number, 
     default   : 1
   },
-  semesters   : [{
-    type      : String
-  }],
   createdAt   : { 
     type      : Date, 
     default   : Date.now()

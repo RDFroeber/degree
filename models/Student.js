@@ -10,14 +10,8 @@ var mongoose = require('mongoose'),
     moment = require('moment');
 
 var studentSchema = new Schema({
-  firstName   : {
-    type      : String, 
-    trim      : true
-  },
-  lastName    : {
-    type      : String, 
-    trim      : true
-  },
+  firstName   : String,
+  lastName    : String,
   email       : {
     type      : String, 
     unique    : true,
@@ -36,31 +30,25 @@ var studentSchema = new Schema({
     type      : String, 
     default   : 'defaultImgpath' // TODO: Update!
   },
-  address   : {
-    street  : {
-      type  : String, 
-      trim  : true
+  address     : {
+    street    : {
+      type    : String, 
+      trim    : true
     },
-    city    : {
-      type  : String, 
-      trim  : true
+    city      : {
+      type    : String, 
+      trim    : true
     },
-    state   : String,
-    zipcode : Number,
+    state     : String,
+    zipcode   : Number,
   },
-  phone     : {
-    type    : String
-  },
-  gradYr      : {
-    type      : Number
-  },
+  phone       : String,
+  gradYr      : Number,
   degree      : {
     type      : Schema.Types.ObjectId, 
     ref       : 'Degree' 
   },
-  track       : {
-    type      : String
-  },
+  track       : String,
   semesters   : [{
     date      : {
       type    : String,
@@ -72,7 +60,7 @@ var studentSchema = new Schema({
         type  : Schema.Types.ObjectId, 
         ref   : 'Course' 
       },
-      instructor: String,
+      section : String,
       status  : {
         type  : String, 
         enum  : ['active', 'completed', 'dropped']
