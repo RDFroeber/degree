@@ -43,8 +43,8 @@ API documentation is automatically generated using the [hapi-swagger](https://ww
   * ~~Add Requirement Model~~
 * API Layer
   * ~~Student CRUD Actions~~
-  * Degree CRUD Actions
-  * Course CRUD Actions
+  * ~~Degree CRUD Actions~~
+  * ~~Course CRUD Actions~~
   * Requirement CRUD Actions
 * Seed the Database
   * Add Students
@@ -82,27 +82,37 @@ Schema Outlines
     * Complete?
     * Courses:
       * *Reference to Course*
-      * Instructor
+      * Section
       * Status active|completed|dropped
       * Grade
 
 * **Course**
   * Name
+  * Course Type Lecture|Seminar|Lab|Independent
   * Number
   * Department
   * Units
-  * Grade Scale
-  * Number of Semesters
+  * Enrollment:
+    * Current
+    * Max
+  * Grade Scale pass/fail|4.0
   * Description
   * Approval Needed?
+  * Course Length in Semesters
+  * Sections
+    * Name
+    * Instructor
+    * Day M|Tu|W|Th|F|Sa|Su|M/W|Tu/Th|M/W/F|OT
+    * Time
+    * Location
+    * Semester
 
 * **Degree**
   * Total Credits
-  * Track Options
   * Core - Locked/Required Courses
     * Requirements:
       * *Course Reference*
-  * Track - Specific Course Options
+  * Tracks - Specific Course Options
     * Name
     * Requirements:
       * *Course Reference*
