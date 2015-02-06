@@ -111,9 +111,9 @@ describe('Student', function() {
     });
 
     describe('.zipcode', function() {
-      it('should exist and be a Number', function() {
+      it('should exist and be a String', function() {
         expect(schema['address.zipcode']).to.exist;
-        expect(schema['address.zipcode'].instance).to.equal('Number');
+        expect(schema['address.zipcode'].instance).to.equal('String');
       });
     });
   });

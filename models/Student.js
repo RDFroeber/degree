@@ -40,7 +40,7 @@ var studentSchema = new Schema({
       trim    : true
     },
     state     : String,
-    zipcode   : Number,
+    zipcode   : String,
   },
   phone       : String,
   gradYr      : Number,

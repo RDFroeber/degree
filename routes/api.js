@@ -18,7 +18,7 @@ var apiRoutes = [
       validate: {
         payload: {
           firstName: Joi.string().trim().min(3).max(100),
-          lastName: Joi.string().trim().min(8).max(100),
+          lastName: Joi.string().trim().min(3).max(100),
           email: Joi.string().email().trim().required(),
           picture: Joi.string().trim().min(8).max(100),
           gender: Joi.string().valid('female', 'male', 'undisclosed'),
@@ -30,7 +30,7 @@ var apiRoutes = [
             street: Joi.string().trim().min(20).max(150),
             city: Joi.string().trim().min(3).max(50),
             state: Joi.string().trim().length(2),
-            zipcode: Joi.number().integer().min(5).max(5),
+            zipcode: Joi.string().trim().length(5)
           },
           phone: Joi.string().regex(/(\(?[0-9]{3}\)?|[0-9]{3}).?[0-9]{3}.?[0-9]{4}/, 'US number'),
           gradYr: Joi.number().integer().min(4).max(4),
@@ -122,7 +122,7 @@ var apiRoutes = [
         payload: {
           id: Joi.string().alphanum(),
           firstName: Joi.string().trim().min(3).max(100),
-          lastName: Joi.string().trim().min(8).max(100),
+          lastName: Joi.string().trim().min(3).max(100),
           email: Joi.string().email().trim(),
           picture: Joi.string().trim().min(8).max(100),
           gender: Joi.string().valid('female', 'male', 'undisclosed'),
@@ -134,7 +134,7 @@ var apiRoutes = [
             street: Joi.string().trim().min(20).max(150),
             city: Joi.string().trim().min(3).max(50),
             state: Joi.string().trim().length(2),
-            zipcode: Joi.number().integer().min(5).max(5),
+            zipcode: Joi.string().trim().length(5)
           },
           phone: Joi.string().regex(/(\(?[0-9]{3}\)?|[0-9]{3}).?[0-9]{3}.?[0-9]{4}/, 'US number'),
           gradYr: Joi.number().integer().min(4).max(4),
