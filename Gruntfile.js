@@ -11,7 +11,7 @@ module.exports = function(grunt) {
       options: {
         jshintrc: '.jshintrc'
       },
-      all: ['Gruntfile.js', 'models/**/*.js', 'handlers/**/*.js', 'plugins/**/*.js'],
+      all: ['Gruntfile.js', 'models/**/*.js', 'controllers/**/*.js', 'plugins/**/*.js'],
       client: ['public/js/*.js'],
       test: ['text/**/*.js']
     }

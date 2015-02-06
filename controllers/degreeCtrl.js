@@ -9,7 +9,7 @@ var Degree = require('../models/Degree');
 module.exports = {
 
   create: function(request, reply){
-    var Degree = request.payload;
+    var degree = request.payload;
 
     Degree.create(degree, function(err, newDegree){
       if(err){
@@ -86,4 +86,4 @@ module.exports = {
   },
 
 
- }
+};

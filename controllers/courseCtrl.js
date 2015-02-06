@@ -9,7 +9,7 @@ var Course = require('../models/Course');
 module.exports = {
 
   create: function(request, reply){
-    var Course = request.payload;
+    var course = request.payload;
 
     Course.create(course, function(err, newCourse){
       if(err){
@@ -87,4 +87,4 @@ module.exports = {
   },
 
 
- }
+};
