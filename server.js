@@ -31,10 +31,8 @@ server.connection({port: 8080});
  **/
 
 server.register([
-  // {register: require('lout')},
   {register: require('hapi-swagger'),
     options: {
-      // basePath: 'http://localhost:8000',
       apiVersion: pgk.version
     }
   },
