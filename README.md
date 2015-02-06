@@ -41,11 +41,11 @@ API documentation is automatically generated using the [hapi-swagger](https://ww
   * ~~Add Degree Model~~
   * ~~Add Course Model~~
   * ~~Add Requirement Model~~
-* API Layer
+* ~~API Layer~~
   * ~~Student CRUD Actions~~
   * ~~Degree CRUD Actions~~
   * ~~Course CRUD Actions~~
-  * Requirement CRUD Actions
+  * ~~Requirement CRUD Actions~~
 * Seed the Database
   * ~~Add Students~~
   * Add Courses
@@ -57,11 +57,11 @@ API documentation is automatically generated using the [hapi-swagger](https://ww
   * TBD
 * Add Styling
 * Tests
-  * Models
+  * ~~Models~~
     * ~~Student~~
-    * Degree 
-    * Course
-    * Requirement 
+    * ~~Degree~~
+    * ~~Course~~
+    * ~~Requirement~~
   * Client
 
 ### Resources
