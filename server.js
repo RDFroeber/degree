@@ -104,7 +104,10 @@ server.views({
  * Routes
  **/
 
-var routes = require('./routes');
+// Authentication Routes
+server.route(require('./routes/auth'));
+// API Routes
+server.route(require('./routes/api'));
 
 // Serve Static Directory
 server.route({
@@ -118,17 +121,3 @@ server.route({
   }
 });
 
-server.route({path: '/', method:'GET', config: routes.home});
-// server.route({path: '/account', method:'GET', config: routes.viewProfile});
-server.route({path: '/auth/google', method: 'GET', config: routes.googleAuth});
-server.route({path: '/logout', method: 'GET', config: routes.logout});
-// API Routes
-server.route(require('./routes/api'));
-
-server.route({
-  method: 'GET',
-  path: '/form',
-  handler: function(request, reply){
-    reply.view('form')
-  }
-});
