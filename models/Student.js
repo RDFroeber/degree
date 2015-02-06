@@ -63,7 +63,7 @@ var studentSchema = new Schema({
   },
   semesters   : [{
     date      : {
-      type    : Date,
+      type    : String,
       required: true
     }, 
     complete  : Boolean,

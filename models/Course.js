@@ -39,10 +39,13 @@ var courseSchema = new Schema({
     type      : String,
     required  : true
   },
-  semesters   : {
-    type      : Date, 
+  length      : {
+    type      : Number, 
     default   : 1
   },
+  semesters   : [{
+    type      : String
+  }],
   createdAt   : { 
     type      : Date, 
     default   : Date.now()

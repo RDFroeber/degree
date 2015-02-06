@@ -20,33 +20,30 @@ var degreeSchema = new Schema({
     trim      : true,
     required  : true,
   },
-  tracks      : {
-    type      : Array
-  },
   core        : {
-    total     : Number,
+    totalReq  : Number,
     requirements: [{
-      type  : Schema.Types.ObjectId, 
-      ref   : 'Requirement' 
+      type    : Schema.Types.ObjectId, 
+      ref     : 'Requirement' 
     }]
   },
-  track       : {
+  tracks      : [{
     name      : {
       type    : String, 
       trim    : true,
       required: true
     },
-    total     : Number,
+    totalReq  : Number,
     requirements: [{
-      type  : Schema.Types.ObjectId, 
-      ref   : 'Requirement' 
+      type    : Schema.Types.ObjectId, 
+      ref     : 'Requirement' 
     }]
-  },
+  }],
   electives   : {
-    total     : Number,
+    totalReq  : Number,
     requirements: [{
-      type  : Schema.Types.ObjectId, 
-      ref   : 'Requirement' 
+      type    : Schema.Types.ObjectId, 
+      ref     : 'Requirement' 
     }]
   },
   createdAt   : { 
