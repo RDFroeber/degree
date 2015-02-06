@@ -51,6 +51,8 @@ module.exports = {
   updateById: function(request, reply){
     var id = request.params.id,
         student = request.payload;
+        
+    student.updatedAt = Date.now();
   
     Student.findByIdAndUpdate(id, student).exec(function(err, updatedStudent){
       if(err){

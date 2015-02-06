@@ -60,6 +60,8 @@ module.exports = {
     var id = request.params.id,
         degree = request.payload;
   
+    degree.updatedAt = Date.now();
+    
     Degree.findByIdAndUpdate(id, degree).exec(function(err, updatedDegree){
       if(err){
         return reply(err).code(400);
