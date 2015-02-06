@@ -47,9 +47,9 @@ API documentation is automatically generated using the [hapi-swagger](https://ww
   * ~~Course CRUD Actions~~
   * Requirement CRUD Actions
 * Seed the Database
-  * Add Students
+  * ~~Add Students~~
   * Add Courses
-  * Add Degrees
+  * ~~Add Degree~~
   * Add Requirements
   * Associate Models
 * View Layer
@@ -72,7 +72,6 @@ Schema Outlines
   * First Name
   * Last Name
   * Email
-  * Password
   * Address
   * Phone
   * Projected Graduation Year
@@ -109,6 +108,8 @@ Schema Outlines
     * Semester
 
 * **Degree**
+  * Name i.e. BS
+  * Specialization i.e. Computer Science
   * Total Credits
   * Core - Locked/Required Courses
     * Requirements:
@@ -130,7 +131,7 @@ Schema Outlines
 
 ## Tests
 
-Not implemented.
+Not fully implemented.
 
 ```sh
 npm test
