@@ -11,8 +11,7 @@ var mongoose = require('mongoose'),
 var degreeSchema = new Schema({
   name        : {
     type      : String,
-    required  : true,
-    unique    : true
+    required  : true
   },
   specialization: {
     type      : String,
