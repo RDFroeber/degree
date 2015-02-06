@@ -30,7 +30,7 @@ describe('Student', function() {
       expect(schema.email.instance).to.equal('String');
     });
 
-    it('should be an index', function() {
+    it('should be an index (unique)', function() {
       expect(schema.email._index).to.not.equal(null);
     });
 
