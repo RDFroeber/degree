@@ -35,7 +35,7 @@ module.exports = {
   },
 
   findByEmail: function(request, reply){
-    var email = request.params.email.toLowerCase();
+    var email = request.query.email.toLowerCase();
 
     Student.findOne({'email': email}).exec(function(err, student){
       if(err){

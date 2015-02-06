@@ -34,10 +34,18 @@ module.exports = {
     });
   },
 
-  findByTrack: function(request, reply){
-    var track = request.params.track;
+  findByName: function(request, reply){
+    var name = request.query.name,
+        track = request.query.track,
+        query;
 
-    Degree.findOne({'tracks.name': track}).exec(function(err, degree){
+    if(name){
+      query = {'names': name};
+    } else if(track){
+      query = {'tracks.name': track};
+    }
+
+    Degree.findOne(query).exec(function(err, degree){
       if(err){
         return reply(err).code(400);
       } else if(!degree){
