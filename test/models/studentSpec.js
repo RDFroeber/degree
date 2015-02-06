@@ -178,10 +178,10 @@ describe('Student', function() {
         });
       });
 
-      describe('.instructor', function() {
+      describe('.section', function() {
         it('should exist and be a String', function() {
-          expect(courseSchema.instructor).to.exist;
-          expect(courseSchema.instructor.options.type.name).to.equal('String');
+          expect(courseSchema.section).to.exist;
+          expect(courseSchema.section.options.type.name).to.equal('String');
         });
       });
 
