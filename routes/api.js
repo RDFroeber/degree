@@ -200,6 +200,7 @@ var apiRoutes = [
       validate: {
         payload: {
           name: Joi.string().trim().min(3).max(100).required(),
+          specialization: Joi.string().trim().min(3).max(100).required(),
           credits: Joi.number().precision(1).required(),
           core: Joi.object().keys({
             totalReq: Joi.number().integer().min(1).max(60),
@@ -288,6 +289,7 @@ var apiRoutes = [
         },
         payload: {
           name: Joi.string().trim().min(3).max(100).required(),
+          specialization: Joi.string().trim().min(3).max(100).required(),
           credits: Joi.number().precision(1).required(),
           core: Joi.object().keys({
             totalReq: Joi.number().integer().min(1).max(60),
@@ -360,14 +362,14 @@ var apiRoutes = [
           },
           gradeScale: Joi.string().valid('pass/fail', '4.0'),
           approval: Joi.boolean(),
-          description: Joi.string().trim().min(40).max(300).required(),
+          description: Joi.string().trim().min(40).max(500).required(),
           courseLength: Joi.number().precision(1).min(0).max(6),
           sections: Joi.array().includes(
             Joi.object().keys({
               name: Joi.string().trim().min(3).max(100),
               instructor: Joi.string().trim().min(8).max(100),
               day: Joi.string().valid('M','Tu','W','Th','F','Sa','Su','M/W','Tu/Th','M/W/F','OT'),
-              time: Joi.string().trim().min(3).max(20),
+              time: Joi.string().regex(/[0-1]{1}[0-9]{1}:[0-9]{2}(am|pm)-[0-1]{1}[0-9]{1}:[0-9]{2}(am|pm)/, 'Time Format'),
               location: Joi.string().trim().min(10).max(100),
               semester: Joi.string().trim().min(9).max(11).required()
             })
@@ -454,14 +456,14 @@ var apiRoutes = [
           },
           gradeScale: Joi.string().valid('pass/fail', '4.0'),
           approval: Joi.boolean(),
-          description: Joi.string().trim().min(40).max(300).required(),
+          description: Joi.string().trim().min(40).max(500).required(),
           courseLength: Joi.number().precision(1).min(0).max(6),
           sections: Joi.array().includes(
             Joi.object().keys({
               name: Joi.string().trim().min(3).max(100),
               instructor: Joi.string().trim().min(8).max(100),
               day: Joi.string().valid('M','Tu','W','Th','F','Sa','Su','M/W','Tu/Th','M/W/F','OT'),
-              time: Joi.string().trim().min(3).max(20),
+              time: Joi.string().regex(/[0-1]{1}[0-9]{1}:[0-9]{2}(am|pm)-[0-1]{1}[0-9]{1}:[0-9]{2}(am|pm)/, 'Time Format'),
               location: Joi.string().trim().min(10).max(100),
               semester: Joi.string().trim().min(9).max(11).required()
             })
