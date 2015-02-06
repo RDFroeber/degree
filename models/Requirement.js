@@ -28,13 +28,9 @@ var requirementSchema = new Schema({
   restriction : {
     resType   : {
       type    : String, 
-      enum    : ['department', 'course', 'level']
+      enum    : ['department', 'course', 'level', 'approval']
     },
     options   : Array
-  },
-  approval    : {
-    type      : Boolean,
-    default   : false
   },
   createdAt   : { 
     type      : Date, 

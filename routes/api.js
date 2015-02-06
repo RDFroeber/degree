@@ -512,6 +512,118 @@ var apiRoutes = [
         }
       }
     }
+  },{
+    method: 'POST',
+    path: '/requirements',
+    config: {
+      handler: ctrl.requirements.create,
+      description: 'Creates a Requirement',
+      tags: ['api', 'requirements'],
+      validate: {
+        payload: {
+          reqType: Joi.string().valid('core', 'track', 'elective', 'prerequisite').required(),
+          course: Joi.string().alphanum(),
+          substitutes: {
+            exist: Joi.boolean(),
+            options: Joi.array().includes(Joi.string().alphanum())
+          },
+          restriction: {
+            resType: Joi.string().valid('department', 'course', 'level', 'approval'),
+            options: Joi.array()
+          }
+        }
+      },
+      plugins: {
+        'hapi-swagger': {
+          responseMessages: [
+            { code: 201, message: 'Created' },
+            { code: 400, message: 'Bad Request' },
+            { code: 500, message: 'Internal Server Error'}
+          ]
+        }
+      }
+    }
+  },{
+    method: 'GET',
+    path: '/requirements/{id}',
+    config: {
+      handler: ctrl.requirements.findById,
+      description: 'Finds a Requirement by id',
+      tags: ['api', 'requirements'],
+      validate: {
+        params: {
+          id: Joi.string().alphanum().required()
+        }
+      },
+      plugins: {
+        'hapi-swagger': {
+          responseMessages: [
+            { code: 200, message: 'OK' },
+            { code: 400, message: 'Bad Request' },
+            { code: 404, message: 'Requirement Not Found' },
+            { code: 500, message: 'Internal Server Error'}
+          ]
+        }
+      }
+    }
+  },{
+    method: 'PUT',
+    path: '/requirements/{id}',
+    config: {
+      handler: ctrl.requirements.updateById,
+      description: 'Updates a Requirement',
+      tags: ['api', 'requirements'],
+      validate: {
+        params: {
+          id: Joi.string().alphanum().required()
+        },
+        payload: {
+          reqType: Joi.string().valid('core', 'track', 'elective', 'prerequisite'),
+          course: Joi.string().alphanum(),
+          substitutes: {
+            exist: Joi.boolean(),
+            options: Joi.array().includes(Joi.string().alphanum())
+          },
+          restriction: {
+            resType: Joi.string().valid('department', 'course', 'level', 'approval'),
+            options: Joi.array()
+          }
+        }
+      },
+      plugins: {
+        'hapi-swagger': {
+          responseMessages: [
+            { code: 200, message: 'OK' },
+            { code: 400, message: 'Bad Request' },
+            { code: 404, message: 'Requirement Not Found' },
+            { code: 500, message: 'Internal Server Error'}
+          ]
+        }
+      }
+    }
+  },{
+    method: 'DELETE',
+    path: '/requirements/{id}',
+    config: {
+      handler: ctrl.requirements.hardDelete,
+      description: 'Permanently deletes a Requirement',
+      tags: ['api', 'requirements'],
+      validate: {
+        params: {
+          id: Joi.string().alphanum().required()
+        }
+      },
+      plugins: {
+        'hapi-swagger': {
+          responseMessages: [
+            { code: 200, message: 'OK' },
+            { code: 400, message: 'Bad Request' },
+            { code: 404, message: 'Requirement Not Found' },
+            { code: 500, message: 'Internal Server Error'}
+          ]
+        }
+      }
+    }
   }
 ];
 
