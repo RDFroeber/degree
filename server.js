@@ -8,7 +8,7 @@ var Hapi = require('hapi'),
     AuthCookie = require('hapi-auth-cookie'),
     pgk = require('./package.json');
 
-var auth = require('./auth');
+var auth = require('./authCredentials');
 
 /**
  * Server Config
