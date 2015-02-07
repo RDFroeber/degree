@@ -13,7 +13,7 @@ module.exports = {
 
     Degree.create(degree, function(err, newDegree){
       if(err){
-        console.log(err);
+        return reply(err).code(400);
       } else {
         return reply(newDegree).code(201);
       }

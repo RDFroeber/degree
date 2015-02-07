@@ -13,7 +13,7 @@ module.exports = {
 
     Student.create(student, function(err, newStudent){
       if(err){
-        console.log(err);
+        return reply(err).code(400);
       } else {
         return reply(newStudent).code(201);
       }

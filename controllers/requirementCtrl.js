@@ -13,7 +13,7 @@ module.exports = {
 
     Requirement.create(requirement, function(err, newRequirement){
       if(err){
-        console.log(err);
+        return reply(err).code(400);
       } else {
         return reply(newRequirement).code(201);
       }
