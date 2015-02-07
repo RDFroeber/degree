@@ -10,7 +10,7 @@ var Joi = require('joi'),
 var apiRoutes = [
   {
     method: 'POST',
-    path: '/students',
+    path: '/api/v1.1/students',
     config: {
       handler: ctrl.students.create,
       description: 'Creates a Student',
@@ -65,7 +65,7 @@ var apiRoutes = [
     }
   },{
     method: 'GET',
-    path: '/students/{id}',
+    path: '/api/v1.1/students/{id}',
     config: {
       handler: ctrl.students.findById,
       description: 'Finds a Student by id',
@@ -88,7 +88,7 @@ var apiRoutes = [
     }
   },{
     method: 'GET',
-    path: '/students',
+    path: '/api/v1.1/students',
     config: {
       handler: ctrl.students.findByEmail,
       description: 'Finds a Student by email query',
@@ -111,7 +111,7 @@ var apiRoutes = [
     }
   },{
     method: 'PUT',
-    path: '/students/{id}',
+    path: '/api/v1.1/students/{id}',
     config: {
       handler: ctrl.students.updateById,
       description: 'Updates a Student',
@@ -171,7 +171,7 @@ var apiRoutes = [
     }
   },{
     method: 'DELETE',
-    path: '/students/{id}',
+    path: '/api/v1.1/students/{id}',
     config: {
       handler: ctrl.students.hardDelete,
       description: 'Permanently deletes a Student',
@@ -194,7 +194,7 @@ var apiRoutes = [
     }
   },{
     method: 'POST',
-    path: '/degrees',
+    path: '/api/v1.1/degrees',
     config: {
       handler: ctrl.degrees.create,
       description: 'Creates a Degree',
@@ -237,7 +237,7 @@ var apiRoutes = [
     }
   },{
     method: 'GET',
-    path: '/degrees/{id}',
+    path: '/api/v1.1/degrees/{id}',
     config: {
       handler: ctrl.degrees.findById,
       description: 'Finds a Degree by id',
@@ -260,10 +260,10 @@ var apiRoutes = [
     }
   },{
     method: 'GET',
-    path: '/degrees',
+    path: '/api/v1.1/degrees',
     config: {
       handler: ctrl.degrees.findByName,
-      description: 'Finds a Degree by name or track query',
+      description: 'Finds all Degrees or one by name|track query',
       tags: ['api', 'degrees'],
       validate: {
         query: {
@@ -284,7 +284,7 @@ var apiRoutes = [
     }
   },{
     method: 'PUT',
-    path: '/degrees/{id}',
+    path: '/api/v1.1/degrees/{id}',
     config: {
       handler: ctrl.degrees.updateById,
       description: 'Updates a Degree',
@@ -331,7 +331,7 @@ var apiRoutes = [
     }
   },{
     method: 'DELETE',
-    path: '/degrees/{id}',
+    path: '/api/v1.1/degrees/{id}',
     config: {
       handler: ctrl.degrees.hardDelete,
       description: 'Permanently deletes a Degree',
@@ -354,7 +354,7 @@ var apiRoutes = [
     }
   },{
     method: 'POST',
-    path: '/courses',
+    path: '/api/v1.1/courses',
     config: {
       handler: ctrl.courses.create,
       description: 'Creates a Course',
@@ -398,7 +398,7 @@ var apiRoutes = [
     }
   },{
     method: 'GET',
-    path: '/courses/{id}',
+    path: '/api/v1.1/courses/{id}',
     config: {
       handler: ctrl.courses.findById,
       description: 'Finds a Course by id',
@@ -421,10 +421,10 @@ var apiRoutes = [
     }
   },{
     method: 'GET',
-    path: '/courses',
+    path: '/api/v1.1/courses',
     config: {
       handler: ctrl.courses.findByNumber,
-      description: 'Finds a Course by number or name query',
+      description: 'Finds all Courses or one by number|name query',
       tags: ['api', 'courses'],
       validate: {
         query: {
@@ -445,7 +445,7 @@ var apiRoutes = [
     }
   },{
     method: 'PUT',
-    path: '/courses/{id}',
+    path: '/api/v1.1/courses/{id}',
     config: {
       handler: ctrl.courses.updateById,
       description: 'Updates a Course',
@@ -493,7 +493,7 @@ var apiRoutes = [
     }
   },{
     method: 'DELETE',
-    path: '/courses/{id}',
+    path: '/api/v1.1/courses/{id}',
     config: {
       handler: ctrl.courses.hardDelete,
       description: 'Permanently deletes a Course',
@@ -516,7 +516,7 @@ var apiRoutes = [
     }
   },{
     method: 'POST',
-    path: '/requirements',
+    path: '/api/v1.1/requirements',
     config: {
       handler: ctrl.requirements.create,
       description: 'Creates a Requirement',
@@ -547,7 +547,7 @@ var apiRoutes = [
     }
   },{
     method: 'GET',
-    path: '/requirements/{id}',
+    path: '/api/v1.1/requirements/{id}',
     config: {
       handler: ctrl.requirements.findById,
       description: 'Finds a Requirement by id',
@@ -570,7 +570,7 @@ var apiRoutes = [
     }
   },{
     method: 'PUT',
-    path: '/requirements/{id}',
+    path: '/api/v1.1/requirements/{id}',
     config: {
       handler: ctrl.requirements.updateById,
       description: 'Updates a Requirement',
@@ -605,7 +605,7 @@ var apiRoutes = [
     }
   },{
     method: 'DELETE',
-    path: '/requirements/{id}',
+    path: '/api/v1.1/requirements/{id}',
     config: {
       handler: ctrl.requirements.hardDelete,
       description: 'Permanently deletes a Requirement',

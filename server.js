@@ -33,7 +33,8 @@ server.connection({port: 8080});
 server.register([
   {register: require('hapi-swagger'),
     options: {
-      apiVersion: pgk.version
+      apiVersion: pgk.version,
+      pathPrefixSize: 3
     }
   },
   {register: HapiMongoose,

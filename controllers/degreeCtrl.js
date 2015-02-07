@@ -43,9 +43,11 @@ module.exports = {
       query = {'names': name};
     } else if(track){
       query = {'tracks.name': track};
+    } else {
+      query = {};
     }
 
-    Degree.findOne(query).exec(function(err, degree){
+    Degree.find(query).exec(function(err, degree){
       if(err){
         return reply(err).code(400);
       } else if(!degree){

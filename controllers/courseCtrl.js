@@ -43,10 +43,12 @@ module.exports = {
       query = {'number': number};
     } else if(name){
       query = {'name': name};
+    } else {
+      query = {};
     }
 
 
-    Course.findOne(query).exec(function(err, course){
+    Course.find(query).exec(function(err, course){
       if(err){
         return reply(err).code(400);
       } else if(!course){
