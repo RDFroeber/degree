@@ -118,6 +118,17 @@ describe('Student', function() {
     });
   });
 
+  describe('.school', function() {
+    it('should exist and be a String', function() {
+      expect(schema.school).to.exist;
+      expect(schema.school.instance).to.equal('String');
+    });
+
+    it('should be required', function() {
+      expect(schema.school.options.required).to.equal(true);
+    });
+  });
+
   describe('.gradYr', function() {
     it('should exist and be a Number', function() {
       expect(schema.gradYr).to.exist;

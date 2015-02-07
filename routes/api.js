@@ -33,6 +33,7 @@ var apiRoutes = [
             zipcode: Joi.string().trim().length(5)
           },
           phone: Joi.string().regex(/(\(?[0-9]{3}\)?|[0-9]{3}).?[0-9]{3}.?[0-9]{4}/, 'US number'),
+          school: Joi.string().min(2).max(15).trim().required(),
           gradYr: Joi.number().integer().min(4).max(4),
           degree: Joi.string().alphanum(),
           track: Joi.string().trim().min(3).max(50),
@@ -137,6 +138,7 @@ var apiRoutes = [
             zipcode: Joi.string().trim().length(5)
           },
           phone: Joi.string().regex(/(\(?[0-9]{3}\)?|[0-9]{3}).?[0-9]{3}.?[0-9]{4}/, 'US number'),
+          school: Joi.string().min(2).max(15).trim(),
           gradYr: Joi.number().integer().min(4).max(4),
           degree: Joi.string().alphanum(),
           track: Joi.string().trim().min(3).max(50),
