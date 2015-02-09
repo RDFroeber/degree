@@ -49,10 +49,11 @@ API documentation is automatically generated using the [hapi-swagger](https://ww
 * Seed the Database
   * ~~Add Students~~
   * Add Courses
+  * Add Schools
   * ~~Add Degree~~
   * Add Requirements
   * Associate Models
-* View Layer (Angular?)
+* View Layer: Angular
   * Login/Signup
   * Dashboard
     * My Account
@@ -62,13 +63,16 @@ API documentation is automatically generated using the [hapi-swagger](https://ww
     * My Classes
       * Active
   * All Degrees
+    * Search by name or degree
+  * All Degrees
     * Search by name, department, track
   * All Courses
     * Search by name, number, department
 * Add Styling
 * Tests
-  * ~~Models~~
+  * Models
     * ~~Student~~
+    * School
     * ~~Degree~~
     * ~~Course~~
     * ~~Requirement~~
