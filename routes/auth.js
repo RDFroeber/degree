@@ -98,14 +98,6 @@ var authRoutes = [
         });
       }
     }
-  },{
-    method: 'GET',
-    path: '/form',
-    config: {
-      handler: function(request, reply){
-        reply.view('form');
-      }
-    }
   }
 ];
 
