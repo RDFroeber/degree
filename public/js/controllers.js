@@ -1,15 +1,41 @@
 'use strict';
 
-angular.module('degreeApp.controllers', [])
-  // IndexCtrl
-  .controller('IndexCtrl', function($scope, crResources, $route) {
-            
+angular.module('degreeApp.controllers', [
+  'degreeApp.models'
+])
+  .controller('IndexCtrl', function($scope, StudentModel) {
+      $scope.world = "world";
+
+      $scope.currentStudent = null;
+
+      $scope.students = StudentModel.getStudents();
+
+      function setCurrentStudent(student){
+        $scope.currentStudent = student;
+      }
+
+      $scope.setCurrentStudent = setCurrentStudent;
   })
-  .controller('DegreeListCtrl', function($scope, $http) {
-    $http.get('/api/v1.1/degrees').success(function(data) {
-      $scope.degrees = data;
-    });
-  })
-  .controller('DegreeDetailCtrl', function($scope, $routeParams) {
-    $scope.degreeName = $routeParams.degreeName;
+  .controller('CoursesListCtrl', function CourseCtrl($scope, CourseModel) {
+    var coursesListCrtl = this;
+    $scope.departments = ['Computer Science', 'Mathematics'];
+    $scope.currentDepartment = null;
+
+    CourseModel.getCourses()
+      .then(function(result){
+        console.log('result', result)
+        $scope.courses = result;
+      });
+
+     function setCurrentDepartment(department){
+        $scope.currentDepartment = department;
+      }
+
+      function isCurrentDepartment(department){
+        return $scope.currentDepartment !== null && department === $scope.currentDepartment
+      }
+
+      $scope.setCurrentDepartment = setCurrentDepartment;
+      $scope.isCurrentDepartment = isCurrentDepartment;
+
   });
