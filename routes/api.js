@@ -635,7 +635,7 @@ var apiRoutes = [
       tags: ['api', 'schools'],
       validate: {
         payload: {
-          name: Joi.string().trim().min(2).max(10).required(),
+          name: Joi.string().trim().min(2).max(50).required(),
           description: Joi.string().trim().min(40).max(500),
           degrees: Joi.array().includes(Joi.string().alphanum())
         }
@@ -682,7 +682,7 @@ var apiRoutes = [
       tags: ['api', 'schools'],
       validate: {
         query: {
-          name: Joi.string().trim().min(3).max(100),
+          name: Joi.string().trim().min(3).max(50),
           degree: Joi.string().trim().min(3).max(100)
         }
       },
@@ -709,7 +709,7 @@ var apiRoutes = [
           id: Joi.string().alphanum().required()
         },
         payload: {
-          name: Joi.string().trim().min(2).max(10),
+          name: Joi.string().trim().min(2).max(50),
           description: Joi.string().trim().min(40).max(500),
           degrees: Joi.array().includes(Joi.string().alphanum())
         }

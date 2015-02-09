@@ -102,8 +102,7 @@ server.views({
       html: require('handlebars')
   },
   isCached : false,
-  path: Path.join(__dirname, '/public/templates'),
-  partialsPath: Path.join(__dirname, '/public/templates/partials')
+  path: Path.join(__dirname, '/public/templates')
 });
 
 /**
