@@ -169,6 +169,8 @@ npm test
 - [chai](https://github.com/chaijs/chai): BDD/TDD assertion library for node.js and the browser
 - [grunt](https://github.com/gruntjs/grunt): The JavaScript Task Runner
 - [grunt-contrib-jshint](https://github.com/gruntjs/grunt-contrib-jshint): Validate files with JSHint
+- [grunt-contrib-watch](https://github.com/gruntjs/grunt-contrib-watch): Run tasks whenever watched files change
+- [grunt-nodemon](https://github.com/ChrisWren/grunt-nodemon): Grunt task to run nodemon
 - [hapi-swagger](https://github.com/glennjones/hapi-swagger): A swagger documentation UI generator plugin for hapi
 - [load-grunt-tasks](https://github.com/sindresorhus/load-grunt-tasks): Load multiple grunt tasks using globbing patterns
 - [mocha](https://github.com/mochajs/mocha): A simple, flexible, fun test framework
