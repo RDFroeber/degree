@@ -62,7 +62,7 @@ API documentation is automatically generated using the [hapi-swagger](https://ww
       * Progress
     * My Classes
       * Active
-  * All Degrees
+  * All Schools
     * Search by name or degree
   * All Degrees
     * Search by name, department, track
@@ -101,6 +101,12 @@ Schema Outlines
       * Section
       * Status active|completed|dropped
       * Grade
+
+* **School**
+  * Name
+  * Description
+  * Degrees: 
+    * Degree *Reference*
 
 * **Course**
   * Name
