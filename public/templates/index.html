@@ -13,7 +13,9 @@
   <!-- <link rel="shortcut icon" sizes="16x16" type="image/png" href="img/favicon.ico"> -->
   
   <!-- Stylesheets -->
-  <link rel="stylesheet" type="text/css" href="/public/css/style.css" />
+  <!-- <link rel="stylesheet" type="text/css" href="/public/css/style.css" /> -->
+  <link rel="stylesheet" type="text/css" href="/public/css/normalize.css" />
+  <link rel="stylesheet" type="text/css" href="/public/css/foundation.min.css" />
 
   <!-- IE Fix for HTML5 Tags -->
   <!--[if lt IE 9]>
@@ -22,64 +24,66 @@
 </head>
 <body ng-controller="IndexCtrl">
 
-<header class="nav">
-  <div class="logo">
-    <h1>Hapi Degree</h1>
-  </div>
+<header class="row">
+  <h1>Hapi Degree</h1>
 
   <!-- Main Navigation -->
   <nav role="navigation" class="main">
-    <ul>
+    <ul class="breadcrumbs">
       <li><a href="#">About</a></li>
       <li><a href="#">Degrees</a></li>
       <li><a href="#">Contact</a></li>
     </ul>
   </nav> 
-
-  <!-- Secondary Navigation -->
-<!--   <nav class="account">
-    <ul>
-      {{#if isLoggedIn}}
-        <li><a href="/account">My Account</a></li>
-        <li><a href="/logout">Logout</a></li>
-      {{else}}
-        <li><a href="/auth/google">Login</a></li>
-      {{/if}}
-    </ul>
-  </nav>  -->
 </header> 
 
 <!-- Main Content Area -->
-<div role="main" class="wrapper">
-  <h2>Students</h2>
-  <p>Hello {{ currentStudent.firstName }}</p>
+<div role="main" class="row">
+  <div class="medium-3 columns">
+    <!-- Secondary Navigation -->
+    <nav class="account">
+      <ul class="side-nav">
+        <!-- {{#if isLoggedIn}} -->
+          <li><a href="/account">My Account</a></li>
+          <li><a href="/logout">Logout</a></li>
+        <!-- {{else}} -->
+          <li><a href="/auth/google">Login</a></li>
+        <!-- {{/if}} -->
+      </ul>
+    </nav> 
+  </div>
 
-  <hr />
-  <ul>
-    <li ng-repeat="student in students"><img src="{{student.picture}}" />
-      <a href="#" ng-click="setCurrentStudent(student)">{{student.firstName + " " + student.lastName}}</a>
-    </li>
-  </ul>
-
-  <div ng-controller="CoursesListCtrl">
-    <h3>Courses:</h3>
-    <ul>
-      <li ng-repeat="department in departments" ng-class="{'active': isCurrentDepartment(department)}">
-        <a href="#" ng-click="setCurrentDepartment(department)">{{department}}</a>
+  <div class="medium-9 columns">
+    <h2>Students</h2>
+    <p>Hello {{ currentStudent.firstName }}</p>
+    <ul class="no-bullet">
+      <li ng-repeat="student in students"><img src="{{student.picture}}" />
+        <a href="#" ng-click="setCurrentStudent(student)">{{student.firstName + " " + student.lastName}}</a>
       </li>
     </ul>
-    <ul>
-      <li ng-repeat="course in courses | filter:{department:currentDepartment}">{{course.name}}</li>
-    </ul>
+
+    <div ng-controller="CoursesListCtrl">
+      <dl class="sub-nav">
+        <dt>Department</dt>
+        <dd ng-repeat="department in departments" ng-class="{'active': isCurrentDepartment(department)}">
+          <a href="#" ng-click="setCurrentDepartment(department)">{{department}}</a>
+        </dd>
+      </dl>
+      
+      <h3>Courses:</h3>
+      <ul class="square">
+        <li ng-repeat="course in courses | filter:{department:currentDepartment}">{{course.name}}</li>
+      </ul>
+    </div>
   </div>
 </div>
 
-<!-- Footer -->
 <hr />
-<footer>
+<!-- Footer -->
+<footer class="row">
   <p>&copy; 2015 Hapi Degree. All Rights Reserved.</p>
   <nav class="footer">
-    <ul>
+    <ul class="inline-list">
       <li><a href="#terms">TERMS OF USE</a></li>
       <li><a href="#privacy">PRIVACY &amp; SECURITY</a></li>
       <li><a href="#returns">RETURN POLICY</a></li>

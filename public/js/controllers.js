@@ -19,7 +19,7 @@ angular.module('degreeApp.controllers', [
   .controller('CoursesListCtrl', function CourseCtrl($scope, CourseModel) {
     var coursesListCrtl = this;
     $scope.departments = ['Computer Science', 'Mathematics'];
-    $scope.currentDepartment = null;
+    $scope.currentDepartment = 'Computer Science';
 
     CourseModel.getCourses()
       .then(function(result){
