@@ -19,10 +19,11 @@ var authRoutes = [
         'hapi-auth-cookie': { redirectTo: false } 
       },
       handler: function(request, reply) {
-        return reply.view('index', {
-          user: JSON.stringify(request.auth.credentials),
-          isLoggedIn: request.auth.isAuthenticated
-        });
+        return reply.file('templates/index.html');
+        // return reply.view('index', {
+        //   user: JSON.stringify(request.auth.credentials),
+        //   isLoggedIn: request.auth.isAuthenticated
+        // });
       }
     }
   },{

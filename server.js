@@ -19,6 +19,13 @@ var server = new Hapi.Server({
     routes: {
       files: {
         relativeTo: Path.join(__dirname, 'public')
+      },
+      cors: {
+        origin: ['*'],
+        headers: ['X-Requested-With', 'Content-Type']
+      },
+      payload: {
+        maxBytes: 10 * 1024 * 1024 // 10MB
       }
     }
   }
@@ -94,11 +101,9 @@ server.views({
   engines: {
       html: require('handlebars')
   },
+  isCached : false,
   path: Path.join(__dirname, '/public/templates'),
-  layoutPath: Path.join(__dirname, '/public/templates/layout'),
-  layout: true,
-  partialsPath: Path.join(__dirname, '/public/templates/partials'),
-  helpersPath: Path.join(__dirname, '/public/templates/helpers')
+  partialsPath: Path.join(__dirname, '/public/templates/partials')
 });
 
 /**
@@ -113,7 +118,7 @@ server.route(require('./routes/api'));
 // Serve Static Directory
 server.route({
   method: 'GET',
-  path: '/{param*}',
+  path: '/public/{param*}',
   handler: {
     directory: {
       path: Path.join(__dirname, 'public'),
