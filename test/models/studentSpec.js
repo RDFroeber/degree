@@ -119,13 +119,13 @@ describe('Student', function() {
   });
 
   describe('.school', function() {
-    it('should exist and be a String', function() {
+   it('should exist and be an Object Id', function() {
       expect(schema.school).to.exist;
-      expect(schema.school.instance).to.equal('String');
+      expect(schema.school.instance).to.equal('ObjectID');
     });
 
-    it('should be required', function() {
-      expect(schema.school.options.required).to.equal(true);
+    it('should reference Requirement', function() {
+      expect(schema.school.options.ref).to.equal('School');
     });
   });
 

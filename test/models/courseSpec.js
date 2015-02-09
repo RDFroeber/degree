@@ -183,6 +183,17 @@ describe('Course', function() {
     });
   });
 
+  describe('.school', function() {
+   it('should exist and be an Object Id', function() {
+      expect(schema.school).to.exist;
+      expect(schema.school.instance).to.equal('ObjectID');
+    });
+
+    it('should reference Requirement', function() {
+      expect(schema.school.options.ref).to.equal('School');
+    });
+  });
+
   describe('timestamps:', function() {
     describe('.createdAt', function() {
       it('should exist and be a Date', function() {

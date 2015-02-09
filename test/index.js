@@ -4,6 +4,7 @@ describe('Hapi Degree Tests', function (){
 
   describe('Models:', function () {
     require('./models/studentSpec');
+    require('./models/schoolSpec');
     require('./models/degreeSpec');
     require('./models/courseSpec');
     require('./models/requirementSpec');
