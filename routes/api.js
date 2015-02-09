@@ -8,7 +8,7 @@ var Joi = require('joi'),
     ctrl = require('../controllers');
 
 var apiRoutes = [
-  {
+  { // Students
     method: 'POST',
     path: '/api/v1.1/students',
     config: {
@@ -192,7 +192,7 @@ var apiRoutes = [
         }
       }
     }
-  },{
+  },{ // Degrees
     method: 'POST',
     path: '/api/v1.1/degrees',
     config: {
@@ -352,7 +352,7 @@ var apiRoutes = [
         }
       }
     }
-  },{
+  },{ // Courses
     method: 'POST',
     path: '/api/v1.1/courses',
     config: {
@@ -514,7 +514,7 @@ var apiRoutes = [
         }
       }
     }
-  },{
+  },{ // Requirements
     method: 'POST',
     path: '/api/v1.1/requirements',
     config: {
@@ -621,6 +621,128 @@ var apiRoutes = [
             { code: 200, message: 'OK' },
             { code: 400, message: 'Bad Request' },
             { code: 404, message: 'Requirement Not Found' },
+            { code: 500, message: 'Internal Server Error'}
+          ]
+        }
+      }
+    }
+  },{ // Schools
+    method: 'POST',
+    path: '/api/v1.1/schools',
+    config: {
+      handler: ctrl.schools.create,
+      description: 'Creates a School',
+      tags: ['api', 'schools'],
+      validate: {
+        payload: {
+          name: Joi.string().trim().min(2).max(10).required(),
+          description: Joi.string().trim().min(40).max(500),
+          degrees: Joi.array().includes(Joi.string().alphanum())
+        }
+      },
+      plugins: {
+        'hapi-swagger': {
+          responseMessages: [
+            { code: 201, message: 'Created' },
+            { code: 400, message: 'Bad Request' },
+            { code: 500, message: 'Internal Server Error'}
+          ]
+        }
+      }
+    }
+  },{
+    method: 'GET',
+    path: '/api/v1.1/schools/{id}',
+    config: {
+      handler: ctrl.schools.findById,
+      description: 'Finds a School by id',
+      tags: ['api', 'schools'],
+      validate: {
+        params: {
+          id: Joi.string().alphanum().required()
+        }
+      },
+      plugins: {
+        'hapi-swagger': {
+          responseMessages: [
+            { code: 200, message: 'OK' },
+            { code: 400, message: 'Bad Request' },
+            { code: 404, message: 'School Not Found' },
+            { code: 500, message: 'Internal Server Error'}
+          ]
+        }
+      }
+    }
+  },{
+    method: 'GET',
+    path: '/api/v1.1/schools',
+    config: {
+      handler: ctrl.schools.findByName,
+      description: 'Finds all Schools or one by name|degree query',
+      tags: ['api', 'schools'],
+      validate: {
+        query: {
+          name: Joi.string().trim().min(3).max(100),
+          degree: Joi.string().trim().min(3).max(100)
+        }
+      },
+      plugins: {
+        'hapi-swagger': {
+          responseMessages: [
+            { code: 200, message: 'OK' },
+            { code: 400, message: 'Bad Request' },
+            { code: 404, message: 'School Not Found' },
+            { code: 500, message: 'Internal Server Error'}
+          ]
+        }
+      }
+    }
+  },{
+    method: 'PUT',
+    path: '/api/v1.1/schools/{id}',
+    config: {
+      handler: ctrl.schools.updateById,
+      description: 'Updates a School',
+      tags: ['api', 'schools'],
+      validate: {
+        params: {
+          id: Joi.string().alphanum().required()
+        },
+        payload: {
+          name: Joi.string().trim().min(2).max(10),
+          description: Joi.string().trim().min(40).max(500),
+          degrees: Joi.array().includes(Joi.string().alphanum())
+        }
+      },
+      plugins: {
+        'hapi-swagger': {
+          responseMessages: [
+            { code: 200, message: 'OK' },
+            { code: 400, message: 'Bad Request' },
+            { code: 404, message: 'School Not Found' },
+            { code: 500, message: 'Internal Server Error'}
+          ]
+        }
+      }
+    }
+  },{
+    method: 'DELETE',
+    path: '/api/v1.1/schools/{id}',
+    config: {
+      handler: ctrl.schools.hardDelete,
+      description: 'Permanently deletes a School',
+      tags: ['api', 'schools'],
+      validate: {
+        params: {
+          id: Joi.string().alphanum().required()
+        }
+      },
+      plugins: {
+        'hapi-swagger': {
+          responseMessages: [
+            { code: 200, message: 'OK' },
+            { code: 400, message: 'Bad Request' },
+            { code: 404, message: 'School Not Found' },
             { code: 500, message: 'Internal Server Error'}
           ]
         }
