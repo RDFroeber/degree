@@ -54,6 +54,10 @@ var degreeSchema = new Schema({
       ref     : 'Requirement' 
     }]
   },
+  school      : {
+    type      : Schema.Types.ObjectId, 
+    ref       : 'School' 
+  },
   createdAt   : { 
     type      : Date, 
     default   : Date.now()

@@ -62,6 +62,10 @@ var courseSchema = new Schema({
     type      : Number, 
     default   : 1
   },
+  school      : {
+    type      : Schema.Types.ObjectId, 
+    ref       : 'School' 
+  },
   createdAt   : { 
     type      : Date, 
     default   : Date.now()

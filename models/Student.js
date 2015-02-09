@@ -45,8 +45,8 @@ var studentSchema = new Schema({
   phone       : String,
   gradYr      : Number,
   school      : {
-    type      : String,
-    required  : true
+    type      : Schema.Types.ObjectId, 
+    ref       : 'School' 
   },
   degree      : {
     type      : Schema.Types.ObjectId, 
