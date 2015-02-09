@@ -30,25 +30,22 @@
   <!-- Main Navigation -->
   <nav role="navigation" class="main">
     <ul class="breadcrumbs">
-      <li><a href="#">About</a></li>
+      <li><a href="#">Schools</a></li>
       <li><a href="#">Degrees</a></li>
-      <li><a href="#">Contact</a></li>
+      <li><a href="#">Courses</a></li>
+      <li class="right"><a href="#">My Account</a></li>
     </ul>
   </nav> 
 </header> 
 
 <!-- Main Content Area -->
 <div role="main" class="row">
+
   <div class="medium-3 columns">
     <!-- Secondary Navigation -->
     <nav class="account">
       <ul class="side-nav">
-        <!-- {{#if isLoggedIn}} -->
-          <li><a href="/account">My Account</a></li>
-          <li><a href="/logout">Logout</a></li>
-        <!-- {{else}} -->
-          <li><a href="/auth/google">Login</a></li>
-        <!-- {{/if}} -->
+          <li><a href="#">Stuff</a></li>
       </ul>
     </nav> 
   </div>
@@ -62,6 +59,32 @@
       </li>
     </ul>
 
+    <div ng-controller="SchoolsListCtrl">
+      <h2>Schools:</h2>
+      <ul class="square">
+        <li ng-repeat="school in schools">{{school.name}}</li>
+      </ul>
+      <form role="form" ng-submit="createSchool(newSchool)" novalidate>
+        <h3>Add a School</h3>
+        <div class="row">
+          <div class="large-4 columns">
+            <label>Name
+              <input type="text" placeholder="School Name" ng-model="newSchool.name"/>
+            </label>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="large-8 columns">
+            <label>Description
+              <textarea placeholder="Description" ng-model="newSchool.description"></textarea>
+            </label>
+          </div>
+        </div>
+        <button type="submit">Add</button>
+      </form>
+    </div>
+
     <div ng-controller="CoursesListCtrl">
       <dl class="sub-nav">
         <dt>Department</dt>
@@ -69,13 +92,14 @@
           <a href="#" ng-click="setCurrentDepartment(department)">{{department}}</a>
         </dd>
       </dl>
-      
+
       <h3>Courses:</h3>
       <ul class="square">
         <li ng-repeat="course in courses | filter:{department:currentDepartment}">{{course.name}}</li>
       </ul>
     </div>
   </div>
+
 </div>
 
 <hr />
@@ -84,10 +108,10 @@
   <p>&copy; 2015 Hapi Degree. All Rights Reserved.</p>
   <nav class="footer">
     <ul class="inline-list">
-      <li><a href="#terms">TERMS OF USE</a></li>
-      <li><a href="#privacy">PRIVACY &amp; SECURITY</a></li>
-      <li><a href="#returns">RETURN POLICY</a></li>
-      <li><a href="#sitemap">SITE MAP</a></li>
+      <li><a href="#terms">About</a></li>
+      <li><a href="#privacy">Privacy &amp; Security</a></li>
+      <li><a href="#returns">Contact</a></li>
+      <li><a href="#sitemap">Site Map</a></li>
     </ul>
   </nav>
 </footer>
@@ -96,9 +120,23 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.12/angular.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.12/angular-route.min.js"></script>
+<!-- Angular App -->
 <script src="/public/js/app.js"></script>
-<script src="/public/js/models.js"></script>
-<script src="/public/js/controllers.js"></script>
+<script src="/public/js/common/models.js"></script>
+<script src="/public/js/common/controllers.js"></script>
+<!-- Students -->
+<script src="/public/js/students/students.js"></script>
+<script src="/public/js/common/student-model.js"></script>
+<!-- Schools -->
+<script src="/public/js/schools/schools.js"></script>
+<script src="/public/js/schools/create/schools-create.js"></script>
+<script src="/public/js/schools/edit/schools-edit.js"></script>
+<script src="/public/js/common/school-model.js"></script>
+<!-- Courses -->
+<!-- <script src="/public/js/courses/courses.js"></script>
+<script src="/public/js/courses/create/courses-create.js"></script>
+<script src="/public/js/courses/edit/courses-edit.js"></script>
+<script src="/public/js/common/course-model.js"></script> -->
 
 </body>
 </html>

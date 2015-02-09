@@ -16,6 +16,25 @@ angular.module('degreeApp.controllers', [
 
       $scope.setCurrentStudent = setCurrentStudent;
   })
+  .controller('SchoolsListCtrl', function CourseCtrl($scope, SchoolModel) {
+    var schoolsListCrtl = this;
+
+    function resetCreateForm(argument) {
+      $scope.newSchool = {name: '', description: ''}
+    }
+
+    function createSchool(school){
+      $scope.schools.push(school);
+      resetCreateForm();
+    }
+
+    SchoolModel.getCourses()
+      .then(function(result){
+        $scope.schools = result;
+      });
+      
+    $scope.createSchool = createSchool;
+  })
   .controller('CoursesListCtrl', function CourseCtrl($scope, CourseModel) {
     var coursesListCrtl = this;
     $scope.departments = ['Computer Science', 'Mathematics'];
@@ -23,7 +42,6 @@ angular.module('degreeApp.controllers', [
 
     CourseModel.getCourses()
       .then(function(result){
-        console.log('result', result)
         $scope.courses = result;
       });
 

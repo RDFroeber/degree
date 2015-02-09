@@ -1,7 +1,8 @@
 'use strict';
 
 angular.module('degreeApp', [
-  'degreeApp.controllers'
+  'student',
+  'schools'
 ]);
 
   

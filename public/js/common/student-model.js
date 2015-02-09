@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('degreeApp.models', [
+angular.module('degreeApp.models.student', [
   // dependencies
 ])
   .service('StudentModel', function($http){
@@ -39,25 +39,5 @@ angular.module('degreeApp.models', [
 
     model.getStudents = function(){
       return students;
-    }
-  })
-  .service('CourseModel', function($http){
-    var model = this,
-        URLS = {
-          FETCH: 'http://localhost:8080/api/v1.1/courses'
-        },
-        courses;
-
-    function getData(result){
-      return result.data;
-    }
-
-    function cacheCourses(result){
-      courses = getData(result);
-      return courses;
-    }
-
-    model.getCourses = function(){
-      return $http.get(URLS.FETCH).then(cacheCourses);
     }
   });
