@@ -42,11 +42,13 @@ API documentation is automatically generated using the [hapi-swagger](https://ww
   * Integrate with Angular
 * ~~Data Layer~~
   * ~~Add Student Model~~
+  * ~~Add School Model~~
   * ~~Add Degree Model~~
   * ~~Add Course Model~~
   * ~~Add Requirement Model~~
 * ~~API Layer~~
   * ~~Student CRUD Actions~~
+  * ~~School CRUD Actions~~
   * ~~Degree CRUD Actions~~
   * ~~Course CRUD Actions~~
   * ~~Requirement CRUD Actions~~
