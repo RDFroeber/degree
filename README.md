@@ -31,11 +31,15 @@ API documentation is automatically generated using the [hapi-swagger](https://ww
 
 ## Development Task List
 
-* ~~Project Setup~~
-* ~~Add Authentication~~
+* Project Setup
+  * ~~File Structure~~
+  * Gruntfile
+  * Bower
+* Add Authentication
   * ~~Google OAuth~~
   * ~~Student Signup~~
   * ~~Student Login~~
+  * Integrate with Angular
 * ~~Data Layer~~
   * ~~Add Student Model~~
   * ~~Add Degree Model~~
@@ -48,12 +52,12 @@ API documentation is automatically generated using the [hapi-swagger](https://ww
   * ~~Requirement CRUD Actions~~
 * Seed the Database
   * ~~Add Students~~
-  * Add Courses
-  * Add Schools
+  * ~~Add Schools~~
   * ~~Add Degree~~
+  * Add Courses
   * Add Requirements
   * Associate Models
-* View Layer: Angular
+* Views: Angular SPA
   * Login/Signup
   * Dashboard
     * My Account
@@ -69,10 +73,11 @@ API documentation is automatically generated using the [hapi-swagger](https://ww
   * All Courses
     * Search by name, number, department
 * Add Styling
+  * ~~Foundation~~
 * Tests
-  * Models
+  * ~~Models~~
     * ~~Student~~
-    * School
+    * ~~School~~
     * ~~Degree~~
     * ~~Course~~
     * ~~Requirement~~
