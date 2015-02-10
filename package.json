@@ -28,7 +28,7 @@
     "bell": "^2.0.0",
     "good": "^5.1.1",
     "good-console": "^4.1.0",
-    "handlebars": "^2.0.0",
+    "handlebars": "^3.0.0",
     "hapi": "^8.1.0",
     "hapi-auth-cookie": "^2.0.0",
     "hapi-mongoose-db-connector": "^2.0.1",
