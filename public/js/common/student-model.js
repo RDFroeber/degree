@@ -18,7 +18,7 @@ angular.module('degreeApp.models.student', [
               zipcode: "10010"
             },
             phone: "800-888-1111",
-            picture: "/public/img/Graduate-male-64.png",
+            picture: "/img/Graduate-male-64.png",
             school: "NYU"
           },{
             firstName: "Raleigh",
@@ -32,7 +32,7 @@ angular.module('degreeApp.models.student', [
               zipcode: "10022"
             },
             phone: "800-888-9999",
-            picture: "/public/img/Graduate-female-64.png",
+            picture: "/img/Graduate-female-64.png",
             school: "Columbia"
           }
         ];

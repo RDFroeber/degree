@@ -1,0 +1,19 @@
+<form role="form" ng-submit="createSchool(newSchool)" novalidate>
+  <h3>Add a School</h3>
+  <div class="row">
+    <div class="large-4 columns">
+      <label>Name
+        <input type="text" placeholder="School Name" ng-model="newSchool.name"/>
+      </label>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="large-8 columns">
+      <label>Description
+        <textarea placeholder="Description" ng-model="newSchool.description"></textarea>
+      </label>
+    </div>
+  </div>
+  <button type="submit">Add</button>
+</form>

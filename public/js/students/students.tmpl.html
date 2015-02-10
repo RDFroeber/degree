@@ -1,0 +1,7 @@
+<h2>Students</h2>
+<p>Hello {{ currentStudent.firstName }}</p>
+<ul class="no-bullet">
+  <li ng-repeat="student in students"><img src="{{student.picture}}" />
+    <a href="#" ng-click="setCurrentStudent(student)">{{student.firstName + " " + student.lastName}}</a>
+  </li>
+</ul>

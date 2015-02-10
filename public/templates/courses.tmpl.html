@@ -1,0 +1,11 @@
+<dl class="sub-nav">
+  <dt>Department</dt>
+  <dd ng-repeat="department in departments" ng-class="{'active': isCurrentDepartment(department)}">
+    <a href="#" ng-click="setCurrentDepartment(department)">{{department}}</a>
+  </dd>
+</dl>
+
+<h3>Courses:</h3>
+<ul class="square">
+  <li ng-repeat="course in courses | filter:{department:currentDepartment}">{{course.name}}</li>
+</ul>
