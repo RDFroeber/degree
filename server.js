@@ -117,7 +117,7 @@ server.route(require('./routes/api'));
 // Serve Static Directory
 server.route({
   method: 'GET',
-  path: '/public/{param*}',
+  path: '/{param*}',
   handler: {
     directory: {
       path: Path.join(__dirname, 'public'),
