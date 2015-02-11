@@ -76,6 +76,9 @@ var apiRoutes = [
         }
       },
       response: {
+        options: {
+          allowUnknown: true
+        },
         schema: {
           firstName: Joi.string().trim().min(3).max(100),
           lastName: Joi.string().trim().min(3).max(100),
@@ -83,7 +86,7 @@ var apiRoutes = [
           picture: Joi.string().trim().min(8).max(100),
           gender: Joi.string().valid('female', 'male', 'undisclosed'),
           google: {
-            token: Joi.string().token(),
+            token: Joi.string(),
             id: Joi.string().alphanum()
           },
           address: {
@@ -93,7 +96,7 @@ var apiRoutes = [
             zipcode: Joi.string().trim().length(5)
           },
           phone: Joi.string().regex(/(\(?[0-9]{3}\)?|[0-9]{3}).?[0-9]{3}.?[0-9]{4}/, 'US number'),
-          school: Joi.string().min(2).max(15).trim().required(),
+          school: Joi.object().pattern(/[[:alnum:]]{24}/, Joi.string()).required(),
           gradYr: Joi.number().integer().min(4).max(4),
           degree: Joi.string().alphanum(),
           track: Joi.string().trim().min(3).max(50),
@@ -137,6 +140,9 @@ var apiRoutes = [
         }
       },
       response: {
+        options: {
+          allowUnknown: true
+        },
         schema: {
           firstName: Joi.string().trim().min(3).max(100),
           lastName: Joi.string().trim().min(3).max(100),
@@ -144,7 +150,7 @@ var apiRoutes = [
           picture: Joi.string().trim().min(8).max(100),
           gender: Joi.string().valid('female', 'male', 'undisclosed'),
           google: {
-            token: Joi.string().token(),
+            token: Joi.string(),
             id: Joi.string().alphanum()
           },
           address: {
@@ -154,7 +160,7 @@ var apiRoutes = [
             zipcode: Joi.string().trim().length(5)
           },
           phone: Joi.string().regex(/(\(?[0-9]{3}\)?|[0-9]{3}).?[0-9]{3}.?[0-9]{4}/, 'US number'),
-          school: Joi.string().min(2).max(15).trim().required(),
+          school: Joi.object().pattern(/[[:alnum:]]{24}/, Joi.string()).required(),
           gradYr: Joi.number().integer().min(4).max(4),
           degree: Joi.string().alphanum(),
           track: Joi.string().trim().min(3).max(50),
@@ -324,6 +330,9 @@ var apiRoutes = [
         }
       },
       response: {
+        options: {
+          allowUnknown: true
+        },
         schema: {
           name: Joi.string().trim().min(2).max(10).required(),
           specialization: Joi.string().trim().min(3).max(100).required(),
@@ -369,12 +378,15 @@ var apiRoutes = [
       tags: ['api', 'degrees'],
       validate: {
         query: {
-          name: Joi.string().trim().min(3).max(100),
+          name: Joi.string().trim().min(2).max(10),
           track: Joi.string().trim().min(3).max(100)
         }
       },
       response: {
-        schema: Joi.array().includes(
+        options: {
+          allowUnknown: true
+        },
+        schema: Joi.array().single().includes(
           Joi.object().keys({
             name: Joi.string().trim().min(2).max(10).required(),
             specialization: Joi.string().trim().min(3).max(100).required(),
@@ -539,6 +551,9 @@ var apiRoutes = [
         }
       },
       response: {
+        options: {
+          allowUnknown: true
+        },
         schema: {
           name: Joi.string().trim().min(3).max(100).required(),
           courseType: Joi.string().valid('Lecture', 'Seminar', 'Lab', 'Independent'),
@@ -590,7 +605,10 @@ var apiRoutes = [
         }
       },
       response: {
-        schema: Joi.array().includes(
+        options: {
+          allowUnknown: true
+        },
+        schema: Joi.array().single().includes(
           Joi.object().keys({
             name: Joi.string().trim().min(3).max(100).required(),
             courseType: Joi.string().valid('Lecture', 'Seminar', 'Lab', 'Independent'),
@@ -744,6 +762,9 @@ var apiRoutes = [
         }
       },
       response: {
+        options: {
+          allowUnknown: true
+        },
         schema: {
           reqType: Joi.string().valid('core', 'track', 'elective', 'prerequisite').required(),
           course: Joi.string().alphanum(),
@@ -863,10 +884,13 @@ var apiRoutes = [
         }
       },
       response: {
+        options: {
+          allowUnknown: true
+        },
         schema: {
           name: Joi.string().trim().min(2).max(50).required(),
           description: Joi.string().trim().min(40).max(500),
-          degrees: Joi.array().includes(Joi.string().alphanum())
+          degrees: Joi.array().includes(Joi.object().pattern(/[[:alnum:]]{24}/, Joi.string()))
         }
       },
       plugins: {
@@ -894,11 +918,14 @@ var apiRoutes = [
         }
       },
       response: {
-        schema: Joi.array().includes(
+        options: {
+          allowUnknown: true
+        },
+        schema: Joi.array().single().includes(
           Joi.object().keys({
             name: Joi.string().trim().min(2).max(50).required(),
             description: Joi.string().trim().min(40).max(500),
-            degrees: Joi.array().includes(Joi.string().alphanum())
+            degrees: Joi.array().includes(Joi.object().pattern(/[[:alnum:]]{24}/, Joi.string()))
           })
         )
       },

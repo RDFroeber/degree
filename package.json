@@ -34,7 +34,8 @@
     "hapi-mongoose-db-connector": "^2.0.1",
     "joi": "^5.1.0",
     "moment": "^2.9.0",
-    "mongoose": "^3.8.22"
+    "mongoose": "^3.8.22",
+    "underscore": "^1.7.0"
   },
   "devDependencies": {
     "chai": "^1.10.0",
