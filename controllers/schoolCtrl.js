@@ -4,7 +4,8 @@
  * School Controller
  **/
 
-var School = require('../models/School');
+var School = require('../models/School'),
+    _ = require('underscore');
 
 module.exports = {
 
@@ -15,7 +16,8 @@ module.exports = {
       if(err){
         return reply(err).code(400);
       } else {
-        return reply(newSchool).code(201);
+        var schoolObj = newSchool.toObject();
+        return reply(schoolObj).code(201);
       }
     });
   },
@@ -29,7 +31,8 @@ module.exports = {
       } else if(!school){
         return reply('School Not Found').code(404);
       } else {
-        return reply(school).code(200);
+        var schoolObj = school.toObject();
+        return reply(schoolObj).code(200);
       }
     });
   },
@@ -46,14 +49,18 @@ module.exports = {
     } else {
       query = {};
     }
-
-    School.find(query).exec(function(err, school){
+    
+    School.find(query).exec(function(err, schools){
       if(err){
         return reply(err).code(400);
-      } else if(!school){
+      } else if(!schools){
         return reply('School Not Found').code(404);
       } else {
-        return reply(school).code(200);
+        var allSchools = [];
+        _.each(schools, function(school){
+          allSchools.push(school.toObject());
+        })
+        return reply(allSchools).code(200);
       }
     });
   },
@@ -70,7 +77,8 @@ module.exports = {
       } else if(!updatedSchool){
         return reply('School Not Found').code(404);
       } else {
-        return reply(updatedSchool).code(200);
+        var schoolObj = updatedSchool.toObject();
+        return reply(schoolObj).code(200);
       }
     });
   },

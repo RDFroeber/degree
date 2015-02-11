@@ -15,7 +15,8 @@ module.exports = {
       if(err){
         return reply(err).code(400);
       } else {
-        return reply(newRequirement).code(201);
+        var reqObj = newRequirement.toObject();
+        return reply(reqObj).code(201);
       }
     });
   },
@@ -29,7 +30,8 @@ module.exports = {
       } else if(!requirement){
         return reply('Requirement Not Found').code(404);
       } else {
-        return reply(requirement).code(200);
+        var reqObj = requirement.toObject();
+        return reply(reqObj).code(200);
       }
     });
   },
@@ -40,13 +42,14 @@ module.exports = {
   
     requirement.updatedAt = Date.now();
 
-    Requirement.findByIdAndUpdate(id, requirement).exec(function(err, updatedRequirement){
+    Requirement.findByIdAndUpdate(id, requirement).exec(function(err, updatedReq){
       if(err){
         return reply(err).code(400);
-      } else if(!updatedRequirement){
+      } else if(!updatedReq){
         return reply('Requirement Not Found').code(404);
       } else {
-        return reply(updatedRequirement).code(200);
+        var reqObj = updatedReq.toObject();
+        return reply(reqObj).code(200);
       }
     });
   },

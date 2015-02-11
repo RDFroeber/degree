@@ -4,7 +4,8 @@
  * Course Controller
  **/
 
-var Course = require('../models/Course');
+var Course = require('../models/Course'),
+    _ = require('underscore');
 
 module.exports = {
 
@@ -15,7 +16,8 @@ module.exports = {
       if(err){
         return reply(err).code(400);
       } else {
-        return reply(newCourse).code(201);
+        var courseObj = newCourse.toObject();
+        return reply(courseObj).code(201);
       }
     });
   },
@@ -29,7 +31,8 @@ module.exports = {
       } else if(!course){
         return reply('Course Not Found').code(404);
       } else {
-        return reply(course).code(200);
+        var courseObj = course.toObject();
+        return reply(courseObj).code(200);
       }
     });
   },
@@ -48,13 +51,17 @@ module.exports = {
     }
 
 
-    Course.find(query).exec(function(err, course){
+    Course.find(query).exec(function(err, courses){
       if(err){
         return reply(err).code(400);
-      } else if(!course){
+      } else if(!courses){
         return reply('Course Not Found').code(404);
       } else {
-        return reply(course).code(200);
+        var allCourses = [];
+        _.each(courses, function(course){
+          allCourses.push(course.toObject());
+        })
+        return reply(allCourses).code(200);
       }
     });
   },
@@ -71,7 +78,8 @@ module.exports = {
       } else if(!updatedCourse){
         return reply('Course Not Found').code(404);
       } else {
-        return reply(updatedCourse).code(200);
+        var courseObj = updatedCourse.toObject();
+        return reply(courseObj).code(200);
       }
     });
   },

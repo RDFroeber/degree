@@ -4,7 +4,8 @@
  * Degree Controller
  **/
 
-var Degree = require('../models/Degree');
+var Degree = require('../models/Degree'),
+    _ = require('underscore');
 
 module.exports = {
 
@@ -15,7 +16,8 @@ module.exports = {
       if(err){
         return reply(err).code(400);
       } else {
-        return reply(newDegree).code(201);
+        var degreeObj = newDegree.toObject();
+        return reply(degreeObj).code(201);
       }
     });
   },
@@ -29,7 +31,8 @@ module.exports = {
       } else if(!degree){
         return reply('Degree Not Found').code(404);
       } else {
-        return reply(degree).code(200);
+        var degreeObj = degree.toObject();
+        return reply(degreeObj).code(200);
       }
     });
   },
@@ -40,20 +43,24 @@ module.exports = {
         query;
 
     if(name){
-      query = {'names': name};
+      query = {'name': name};
     } else if(track){
       query = {'tracks.name': track};
     } else {
       query = {};
     }
 
-    Degree.find(query).exec(function(err, degree){
+    Degree.find(query).exec(function(err, degrees){
       if(err){
         return reply(err).code(400);
-      } else if(!degree){
+      } else if(!degrees){
         return reply('Degree Not Found').code(404);
       } else {
-        return reply(degree).code(200);
+        var allDegrees = [];
+        _.each(degrees, function(degree){
+          allDegrees.push(degree.toObject());
+        })
+        return reply(allDegrees).code(200);
       }
     });
   },
@@ -70,7 +77,8 @@ module.exports = {
       } else if(!updatedDegree){
         return reply('Degree Not Found').code(404);
       } else {
-        return reply(updatedDegree).code(200);
+        var degreeObj = updatedDegree.toObject();
+        return reply(degreeObj).code(200);
       }
     });
   },

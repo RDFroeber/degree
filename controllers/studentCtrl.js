@@ -15,7 +15,8 @@ module.exports = {
       if(err){
         return reply(err).code(400);
       } else {
-        return reply(newStudent).code(201);
+        var studentObj = newStudent.toObject();
+        return reply(studentObj).code(201);
       }
     });
   },
@@ -29,7 +30,8 @@ module.exports = {
       } else if(!student){
         return reply('Student Not Found').code(404);
       } else {
-        return reply(student).code(200);
+        var studentObj = student.toObject();
+        return reply(studentObj).code(200);
       }
     });
   },
@@ -43,7 +45,8 @@ module.exports = {
       } else if(!student){
         return reply('Student Not Found').code(404);
       } else {
-        return reply(student).code(200);
+        var studentObj = student.toObject();
+        return reply(studentObj).code(200);
       }
     });
   },
@@ -60,7 +63,8 @@ module.exports = {
       } else if(!updatedStudent){
         return reply('Student Not Found').code(404);
       } else {
-        return reply(updatedStudent).code(200);
+        var studentObj = updatedStudent.toObject();
+        return reply(studentObj).code(200);
       }
     });
   },
