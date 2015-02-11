@@ -75,6 +75,44 @@ var apiRoutes = [
           id: Joi.string().alphanum().required()
         }
       },
+      response: {
+        schema: {
+          firstName: Joi.string().trim().min(3).max(100),
+          lastName: Joi.string().trim().min(3).max(100),
+          email: Joi.string().email().trim().required(),
+          picture: Joi.string().trim().min(8).max(100),
+          gender: Joi.string().valid('female', 'male', 'undisclosed'),
+          google: {
+            token: Joi.string().token(),
+            id: Joi.string().alphanum()
+          },
+          address: {
+            street: Joi.string().trim().min(20).max(150),
+            city: Joi.string().trim().min(3).max(50),
+            state: Joi.string().trim().length(2),
+            zipcode: Joi.string().trim().length(5)
+          },
+          phone: Joi.string().regex(/(\(?[0-9]{3}\)?|[0-9]{3}).?[0-9]{3}.?[0-9]{4}/, 'US number'),
+          school: Joi.string().min(2).max(15).trim().required(),
+          gradYr: Joi.number().integer().min(4).max(4),
+          degree: Joi.string().alphanum(),
+          track: Joi.string().trim().min(3).max(50),
+          semesters: Joi.array().includes(
+            Joi.object().keys({
+              date: Joi.string().trim().min(9).max(11).required(),
+              complete: Joi.boolean(),
+              courses: Joi.array().includes(
+                Joi.object().keys({
+                  course: Joi.string().alphanum(),
+                  section: Joi.string().trim().min(3).max(50),
+                  status: Joi.string().valid('active', 'completed', 'dropped'),
+                  grade: Joi.string().trim().min(1).max(4),
+                })
+              )
+            })
+          )
+        }
+      },
       plugins: {
         'hapi-swagger': {
           responseMessages: [
@@ -96,6 +134,44 @@ var apiRoutes = [
       validate: {
         query: {
           email: Joi.string().email().trim().required()
+        }
+      },
+      response: {
+        schema: {
+          firstName: Joi.string().trim().min(3).max(100),
+          lastName: Joi.string().trim().min(3).max(100),
+          email: Joi.string().email().trim().required(),
+          picture: Joi.string().trim().min(8).max(100),
+          gender: Joi.string().valid('female', 'male', 'undisclosed'),
+          google: {
+            token: Joi.string().token(),
+            id: Joi.string().alphanum()
+          },
+          address: {
+            street: Joi.string().trim().min(20).max(150),
+            city: Joi.string().trim().min(3).max(50),
+            state: Joi.string().trim().length(2),
+            zipcode: Joi.string().trim().length(5)
+          },
+          phone: Joi.string().regex(/(\(?[0-9]{3}\)?|[0-9]{3}).?[0-9]{3}.?[0-9]{4}/, 'US number'),
+          school: Joi.string().min(2).max(15).trim().required(),
+          gradYr: Joi.number().integer().min(4).max(4),
+          degree: Joi.string().alphanum(),
+          track: Joi.string().trim().min(3).max(50),
+          semesters: Joi.array().includes(
+            Joi.object().keys({
+              date: Joi.string().trim().min(9).max(11).required(),
+              complete: Joi.boolean(),
+              courses: Joi.array().includes(
+                Joi.object().keys({
+                  course: Joi.string().alphanum(),
+                  section: Joi.string().trim().min(3).max(50),
+                  status: Joi.string().valid('active', 'completed', 'dropped'),
+                  grade: Joi.string().trim().min(1).max(4),
+                })
+              )
+            })
+          )
         }
       },
       plugins: {
@@ -247,6 +323,32 @@ var apiRoutes = [
           id: Joi.string().alphanum().required()
         }
       },
+      response: {
+        schema: {
+          name: Joi.string().trim().min(2).max(10).required(),
+          specialization: Joi.string().trim().min(3).max(100).required(),
+          credits: Joi.number().precision(1).required(),
+          prerequisites: Joi.object().keys({
+            totalReq: Joi.number().integer().min(1).max(60),
+            requirements: Joi.array().includes(Joi.string().alphanum())
+          }),
+          core: Joi.object().keys({
+            totalReq: Joi.number().integer().min(1).max(60),
+            requirements: Joi.array().includes(Joi.string().alphanum())
+          }),
+          tracks: Joi.array().includes(
+            Joi.object().keys({
+              name: Joi.string().trim().min(3).max(100).required(),
+              totalReq: Joi.number().integer().min(1).max(60),
+              requirements: Joi.array().includes(Joi.string().alphanum())
+            })
+          ),
+          electives: Joi.object().keys({
+            totalReq: Joi.number().integer().min(1).max(60),
+            requirements: Joi.array().includes(Joi.string().alphanum())
+          })
+        }
+      },
       plugins: {
         'hapi-swagger': {
           responseMessages: [
@@ -270,6 +372,34 @@ var apiRoutes = [
           name: Joi.string().trim().min(3).max(100),
           track: Joi.string().trim().min(3).max(100)
         }
+      },
+      response: {
+        schema: Joi.array().includes(
+          Joi.object().keys({
+            name: Joi.string().trim().min(2).max(10).required(),
+            specialization: Joi.string().trim().min(3).max(100).required(),
+            credits: Joi.number().precision(1).required(),
+            prerequisites: Joi.object().keys({
+              totalReq: Joi.number().integer().min(1).max(60),
+              requirements: Joi.array().includes(Joi.string().alphanum())
+            }),
+            core: Joi.object().keys({
+              totalReq: Joi.number().integer().min(1).max(60),
+              requirements: Joi.array().includes(Joi.string().alphanum())
+            }),
+            tracks: Joi.array().includes(
+              Joi.object().keys({
+                name: Joi.string().trim().min(3).max(100).required(),
+                totalReq: Joi.number().integer().min(1).max(60),
+                requirements: Joi.array().includes(Joi.string().alphanum())
+              })
+            ),
+            electives: Joi.object().keys({
+              totalReq: Joi.number().integer().min(1).max(60),
+              requirements: Joi.array().includes(Joi.string().alphanum())
+            })
+          })
+        )
       },
       plugins: {
         'hapi-swagger': {
@@ -408,6 +538,33 @@ var apiRoutes = [
           id: Joi.string().alphanum().required()
         }
       },
+      response: {
+        schema: {
+          name: Joi.string().trim().min(3).max(100).required(),
+          courseType: Joi.string().valid('Lecture', 'Seminar', 'Lab', 'Independent'),
+          number: Joi.string().trim().min(3).max(10).required(),
+          department: Joi.string().trim().min(3).max(100).required(),
+          units: Joi.number().precision(1).required(),
+          enrollment: {
+            current: Joi.number().integer(),
+            max: Joi.number().integer()
+          },
+          gradeScale: Joi.string().valid('pass/fail', '4.0'),
+          approval: Joi.boolean(),
+          description: Joi.string().trim().min(40).max(500).required(),
+          courseLength: Joi.number().precision(1).min(0).max(6),
+          sections: Joi.array().includes(
+            Joi.object().keys({
+              number: Joi.string().trim().min(3).max(100),
+              instructor: Joi.string().trim().min(8).max(100),
+              day: Joi.string().valid('M','Tu','W','Th','F','Sa','Su','M/W','Tu/Th','M/W/F','OT'),
+              time: Joi.string().regex(/[0-1]{1}[0-9]{1}:[0-9]{2}(am|pm)-[0-1]{1}[0-9]{1}:[0-9]{2}(am|pm)/, 'Time Format'),
+              location: Joi.string().trim().min(10).max(100),
+              semester: Joi.string().trim().min(9).max(11).required()
+            })
+          )
+        }
+      },
       plugins: {
         'hapi-swagger': {
           responseMessages: [
@@ -431,6 +588,35 @@ var apiRoutes = [
           name: Joi.string().trim().min(3).max(100),
           number: Joi.string().trim().min(3).max(10)
         }
+      },
+      response: {
+        schema: Joi.array().includes(
+          Joi.object().keys({
+            name: Joi.string().trim().min(3).max(100).required(),
+            courseType: Joi.string().valid('Lecture', 'Seminar', 'Lab', 'Independent'),
+            number: Joi.string().trim().min(3).max(10).required(),
+            department: Joi.string().trim().min(3).max(100).required(),
+            units: Joi.number().precision(1).required(),
+            enrollment: {
+              current: Joi.number().integer(),
+              max: Joi.number().integer()
+            },
+            gradeScale: Joi.string().valid('pass/fail', '4.0'),
+            approval: Joi.boolean(),
+            description: Joi.string().trim().min(40).max(500).required(),
+            courseLength: Joi.number().precision(1).min(0).max(6),
+            sections: Joi.array().includes(
+              Joi.object().keys({
+                number: Joi.string().trim().min(3).max(100),
+                instructor: Joi.string().trim().min(8).max(100),
+                day: Joi.string().valid('M','Tu','W','Th','F','Sa','Su','M/W','Tu/Th','M/W/F','OT'),
+                time: Joi.string().regex(/[0-1]{1}[0-9]{1}:[0-9]{2}(am|pm)-[0-1]{1}[0-9]{1}:[0-9]{2}(am|pm)/, 'Time Format'),
+                location: Joi.string().trim().min(10).max(100),
+                semester: Joi.string().trim().min(9).max(11).required()
+              })
+            )
+          })
+        )
       },
       plugins: {
         'hapi-swagger': {
@@ -557,6 +743,20 @@ var apiRoutes = [
           id: Joi.string().alphanum().required()
         }
       },
+      response: {
+        schema: {
+          reqType: Joi.string().valid('core', 'track', 'elective', 'prerequisite').required(),
+          course: Joi.string().alphanum(),
+          substitutes: {
+            exist: Joi.boolean(),
+            options: Joi.array().includes(Joi.string().alphanum())
+          },
+          restriction: {
+            resType: Joi.string().valid('department', 'course', 'level', 'approval'),
+            options: Joi.array()
+          }
+        }
+      },
       plugins: {
         'hapi-swagger': {
           responseMessages: [
@@ -662,6 +862,13 @@ var apiRoutes = [
           id: Joi.string().alphanum().required()
         }
       },
+      response: {
+        schema: {
+          name: Joi.string().trim().min(2).max(50).required(),
+          description: Joi.string().trim().min(40).max(500),
+          degrees: Joi.array().includes(Joi.string().alphanum())
+        }
+      },
       plugins: {
         'hapi-swagger': {
           responseMessages: [
@@ -685,6 +892,15 @@ var apiRoutes = [
           name: Joi.string().trim().min(3).max(50),
           degree: Joi.string().trim().min(3).max(100)
         }
+      },
+      response: {
+        schema: Joi.array().includes(
+          Joi.object().keys({
+            name: Joi.string().trim().min(2).max(50).required(),
+            description: Joi.string().trim().min(40).max(500),
+            degrees: Joi.array().includes(Joi.string().alphanum())
+          })
+        )
       },
       plugins: {
         'hapi-swagger': {
