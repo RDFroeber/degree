@@ -914,7 +914,7 @@ var apiRoutes = [
       validate: {
         query: {
           name: Joi.string().trim().min(3).max(50),
-          degree: Joi.string().trim().min(3).max(100)
+          degree: Joi.string().trim().min(2).max(100)
         }
       },
       response: {

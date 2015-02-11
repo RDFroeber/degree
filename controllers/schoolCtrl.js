@@ -43,7 +43,7 @@ module.exports = {
         query;
 
     if(name){
-      query = {'names': name};
+      query = {'name': name};
     } else if(degree){
       query = {'degrees.name': degree};
     } else {
